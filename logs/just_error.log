@@ -1,1465 +1,189 @@
-INFO 2021-03-23 22:28:39,367 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-23 22:28:43,917 exceptions 12 view是: <home.views.TestView object at 0x000001DC9B1F3FD0>, 错误是'age'
-INFO 2021-03-23 22:28:43,982 basehttp 154 "GET /home/home/ HTTP/1.1" 200 5192
-INFO 2021-03-23 22:30:17,083 autoreload 211 D:\JUST\justapi\justapi\utils\exceptions.py changed, reloading.
-INFO 2021-03-23 22:30:25,875 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-23 22:30:45,819 exceptions 12 view是: <home.views.TestView object at 0x000001DDD462C710>, 错误是'age'
-INFO 2021-03-23 22:30:45,984 basehttp 154 "GET /home/home/ HTTP/1.1" 200 5192
-INFO 2021-03-23 22:32:01,985 autoreload 211 D:\JUST\justapi\justapi\utils\exceptions.py changed, reloading.
-INFO 2021-03-23 22:32:04,538 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-23 22:32:33,137 log 228 Internal Server Error: /home/home/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\home\views.py", line 13, in get
-    print(dic['age'])
-KeyError: 'age'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\generic\base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 466, in handle_exception
-    response = exception_handler(exc, context)
-  File "D:\JUST\justapi\justapi\utils\exceptions.py", line 13, in common_exceptions_handler
-    log.error('view是: %s, 错误是%s'%(context['view'].__class__().__name__,str(exc)))
-AttributeError: 'TestView' object has no attribute '__name__'
-ERROR 2021-03-23 22:32:33,176 basehttp 154 "GET /home/home/ HTTP/1.1" 500 97682
-INFO 2021-03-23 22:33:15,553 autoreload 211 D:\JUST\justapi\justapi\utils\exceptions.py changed, reloading.
-INFO 2021-03-23 22:33:18,236 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-23 22:33:26,607 log 228 Internal Server Error: /home/home/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\home\views.py", line 13, in get
-    print(dic['age'])
-KeyError: 'age'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\generic\base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 466, in handle_exception
-    response = exception_handler(exc, context)
-  File "D:\JUST\justapi\justapi\utils\exceptions.py", line 13, in common_exceptions_handler
-    log.error('view是: %s, 错误是%s'%(context['view'].__name__.__class__(),str(exc)))
-AttributeError: 'TestView' object has no attribute '__name__'
-ERROR 2021-03-23 22:33:26,654 basehttp 154 "GET /home/home/ HTTP/1.1" 500 97682
-INFO 2021-03-23 22:33:40,547 autoreload 211 D:\JUST\justapi\justapi\utils\exceptions.py changed, reloading.
-INFO 2021-03-23 22:33:43,751 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-23 22:33:45,798 exceptions 13 view是: TestView, 错误是'age'
-INFO 2021-03-23 22:33:45,911 basehttp 154 "GET /home/home/ HTTP/1.1" 200 5192
-INFO 2021-03-23 22:34:24,998 autoreload 211 D:\JUST\justapi\justapi\utils\exceptions.py changed, reloading.
-INFO 2021-03-23 22:34:28,349 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 00:48:16,675 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 00:56:04,641 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 00:56:58,537 basehttp 154 "GET /xadmin HTTP/1.1" 301 0
-INFO 2021-03-24 00:56:59,152 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 4151
-INFO 2021-03-24 00:56:59,271 basehttp 154 "GET /static/xadmin/css/themes/bootstrap-xadmin.css HTTP/1.1" 200 1888
-INFO 2021-03-24 00:56:59,293 basehttp 154 "GET /static/xadmin/vendor/bootstrap/css/bootstrap.css HTTP/1.1" 200 126432
-INFO 2021-03-24 00:56:59,294 basehttp 154 "GET /static/xadmin/vendor/font-awesome/css/font-awesome.css HTTP/1.1" 200 21658
-INFO 2021-03-24 00:56:59,314 basehttp 154 "GET /static/xadmin/css/xadmin.plugins.css HTTP/1.1" 200 175
-INFO 2021-03-24 00:56:59,329 basehttp 154 "GET /static/xadmin/css/xadmin.main.css HTTP/1.1" 200 8376
-INFO 2021-03-24 00:56:59,350 basehttp 154 "GET /static/xadmin/css/xadmin.responsive.css HTTP/1.1" 200 4361
-INFO 2021-03-24 00:56:59,358 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.core.js HTTP/1.1" 200 8195
-INFO 2021-03-24 00:56:59,425 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.mouse.js HTTP/1.1" 200 4561
-INFO 2021-03-24 00:56:59,435 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.widget.js HTTP/1.1" 200 15069
-INFO 2021-03-24 00:56:59,459 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.sortable.js HTTP/1.1" 200 42543
-INFO 2021-03-24 00:56:59,471 basehttp 154 "GET /static/xadmin/vendor/bootstrap/js/bootstrap.js HTTP/1.1" 200 58327
-INFO 2021-03-24 00:56:59,519 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 4158
-INFO 2021-03-24 00:56:59,520 basehttp 154 "GET /static/xadmin/vendor/jquery/jquery.js HTTP/1.1" 200 240196
-INFO 2021-03-24 00:56:59,525 basehttp 154 "GET /static/xadmin/js/xadmin.main.js HTTP/1.1" 200 3401
-INFO 2021-03-24 00:56:59,529 basehttp 154 "GET /static/xadmin/js/xadmin.responsive.js HTTP/1.1" 200 4165
-INFO 2021-03-24 00:56:59,803 basehttp 154 "GET /static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.woff?v=4.0.3 HTTP/1.1" 200 44432
-WARNING 2021-03-24 00:56:59,923 log 228 Not Found: /favicon.ico
-WARNING 2021-03-24 00:56:59,926 basehttp 154 "GET /favicon.ico HTTP/1.1" 404 2308
-INFO 2021-03-24 00:57:07,819 basehttp 154 "POST /xadmin/ HTTP/1.1" 302 0
-INFO 2021-03-24 00:57:08,037 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 10142
-INFO 2021-03-24 00:57:08,154 basehttp 154 "GET /static/xadmin/css/xadmin.page.dashboard.css HTTP/1.1" 200 790
-INFO 2021-03-24 00:57:08,161 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.portal.js HTTP/1.1" 200 1000
-INFO 2021-03-24 00:57:08,168 basehttp 154 "GET /static/xadmin/js/xadmin.page.dashboard.js HTTP/1.1" 200 3208
-INFO 2021-03-24 00:57:08,179 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 00:57:12,847 basehttp 154 "GET /xadmin/user/user/ HTTP/1.1" 200 30004
-INFO 2021-03-24 00:57:12,930 basehttp 154 "GET /static/xadmin/css/xadmin.form.css HTTP/1.1" 200 3763
-INFO 2021-03-24 00:57:12,985 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 00:57:12,990 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.details.js HTTP/1.1" 200 2319
-INFO 2021-03-24 00:57:12,994 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.actions.js HTTP/1.1" 200 4198
-INFO 2021-03-24 00:57:12,995 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.filters.js HTTP/1.1" 200 1990
-INFO 2021-03-24 00:57:12,997 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.bookmark.js HTTP/1.1" 200 529
-INFO 2021-03-24 00:57:13,033 basehttp 154 "GET /static/xadmin/js/xadmin.page.list.js HTTP/1.1" 200 1105
-INFO 2021-03-24 00:57:13,041 basehttp 154 "GET /static/xadmin/js/xadmin.page.form.js HTTP/1.1" 200 1948
-INFO 2021-03-24 00:57:16,133 basehttp 154 "GET /xadmin/xadmin/log/ HTTP/1.1" 200 25879
-INFO 2021-03-24 00:57:16,226 basehttp 154 "GET /static/xadmin/vendor/bootstrap-datepicker/css/datepicker.css HTTP/1.1" 200 10225
-INFO 2021-03-24 00:57:16,234 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.css HTTP/1.1" 200 8425
-INFO 2021-03-24 00:57:16,244 basehttp 154 "GET /static/xadmin/vendor/select2/select2.css HTTP/1.1" 200 19226
-INFO 2021-03-24 00:57:16,259 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.bootstrap3.css HTTP/1.1" 200 10602
-INFO 2021-03-24 00:57:16,284 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 00:57:16,340 basehttp 154 "GET /static/xadmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 200 32656
-INFO 2021-03-24 00:57:16,349 basehttp 154 "GET /static/xadmin/js/xadmin.widget.datetime.js HTTP/1.1" 200 2979
-INFO 2021-03-24 00:57:16,391 basehttp 154 "GET /static/xadmin/vendor/select2/select2.js HTTP/1.1" 200 104906
-INFO 2021-03-24 00:57:16,393 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.js HTTP/1.1" 200 98602
-INFO 2021-03-24 00:57:16,444 basehttp 154 "GET /static/xadmin/js/xadmin.widget.select.js HTTP/1.1" 200 1344
-INFO 2021-03-24 00:57:16,445 basehttp 154 "GET /static/xadmin/vendor/select2/select2_locale_zh-hans.js HTTP/1.1" 200 694
-INFO 2021-03-24 01:01:41,095 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:02:54,117 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:05:56,284 autoreload 211 D:\JUST\justapi\justapi\apps\home\models.py changed, reloading.
-INFO 2021-03-24 01:27:26,946 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:34:54,891 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:35:51,990 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:42:34,780 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:43:43,376 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:45:15,530 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:47:10,779 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 01:57:10,866 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 15:19:07,097 autoreload 584 Watching for file changes with StatReloader
-ERROR 2021-03-24 15:19:54,522 log 228 Internal Server Error: /home/banner/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\home\views.py", line 40, in list
-    response = super().list(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 46, in list
-    return Response(serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-ERROR 2021-03-24 15:19:54,541 log 228 Internal Server Error: /course/teacher/good_teacher/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_teacher' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\course\views.py", line 175, in good_teacher
-    return Response(teacher_serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_teacher' doesn't exist")
-ERROR 2021-03-24 15:19:54,561 log 228 Internal Server Error: /course/popular/popular_course/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\course\views.py", line 151, in popular_course
-    return Response(course_serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:19:54,595 basehttp 154 "GET /home/banner/ HTTP/1.1" 500 24637
-ERROR 2021-03-24 15:19:54,607 basehttp 154 "GET /course/teacher/good_teacher/ HTTP/1.1" 500 24574
-ERROR 2021-03-24 15:19:54,611 basehttp 154 "GET /course/popular/popular_course/ HTTP/1.1" 500 24580
-ERROR 2021-03-24 15:20:01,867 log 228 Internal Server Error: /course/project/item_course/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\course\views.py", line 162, in item_course
-    return Response(courses_serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:20:01,894 basehttp 154 "GET /course/project/item_course/ HTTP/1.1" 500 24566
-ERROR 2021-03-24 15:20:05,178 log 228 Internal Server Error: /course/categories/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course_category' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 46, in list
-    return Response(serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course_category' doesn't exist")
-ERROR 2021-03-24 15:20:05,205 basehttp 154 "GET /course/categories/ HTTP/1.1" 500 24564
-ERROR 2021-03-24 15:20:05,359 log 228 Internal Server Error: /course/free/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 40, in list
-    page = self.paginate_queryset(queryset)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
-    return self.paginator.paginate_queryset(queryset, self.request, view=self)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\pagination.py", line 206, in paginate_queryset
-    self.page = paginator.page(page_number)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 70, in page
-    number = self.validate_number(number)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 48, in validate_number
-    if number > self.num_pages:
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 97, in num_pages
-    if self.count == 0 and not self.allow_empty_first_page:
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 91, in count
-    return c()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 392, in count
-    return self.query.get_count(using=self.db)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 504, in get_count
-    number = obj.get_aggregation(using, ['__count'])['__count']
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 489, in get_aggregation
-    result = compiler.execute_sql(SINGLE)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:20:05,390 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 500 25350
-ERROR 2021-03-24 15:20:09,392 log 228 Internal Server Error: /course/categories/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course_category' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 46, in list
-    return Response(serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course_category' doesn't exist")
-ERROR 2021-03-24 15:20:09,418 log 228 Internal Server Error: /course/free/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 40, in list
-    page = self.paginate_queryset(queryset)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
-    return self.paginator.paginate_queryset(queryset, self.request, view=self)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\pagination.py", line 206, in paginate_queryset
-    self.page = paginator.page(page_number)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 70, in page
-    number = self.validate_number(number)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 48, in validate_number
-    if number > self.num_pages:
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 97, in num_pages
-    if self.count == 0 and not self.allow_empty_first_page:
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 91, in count
-    return c()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 392, in count
-    return self.query.get_count(using=self.db)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 504, in get_count
-    number = obj.get_aggregation(using, ['__count'])['__count']
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 489, in get_aggregation
-    result = compiler.execute_sql(SINGLE)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:20:09,440 basehttp 154 "GET /course/categories/ HTTP/1.1" 500 24564
-ERROR 2021-03-24 15:20:09,444 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 500 25350
-ERROR 2021-03-24 15:20:15,807 log 228 Internal Server Error: /course/popular/popular_course/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\course\views.py", line 151, in popular_course
-    return Response(course_serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:20:15,838 log 228 Internal Server Error: /course/teacher/good_teacher/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_teacher' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\course\views.py", line 175, in good_teacher
-    return Response(teacher_serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_teacher' doesn't exist")
-ERROR 2021-03-24 15:20:15,885 log 228 Internal Server Error: /home/banner/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "D:\JUST\justapi\justapi\apps\home\views.py", line 40, in list
-    response = super().list(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\mixins.py", line 46, in list
-    return Response(serializer.data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 745, in data
-    ret = super().data
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 246, in data
-    self._data = self.to_representation(self.instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\rest_framework\serializers.py", line 664, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 274, in __iter__
-    self._fetch_all()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 55, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-ERROR 2021-03-24 15:20:15,894 basehttp 154 "GET /course/popular/popular_course/ HTTP/1.1" 500 24580
-ERROR 2021-03-24 15:20:15,937 basehttp 154 "GET /home/banner/ HTTP/1.1" 500 24637
-ERROR 2021-03-24 15:20:15,907 basehttp 154 "GET /course/teacher/good_teacher/ HTTP/1.1" 500 24574
-INFO 2021-03-24 15:20:53,324 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-INFO 2021-03-24 15:20:53,581 basehttp 154 "GET /static/xadmin/css/xadmin.page.dashboard.css HTTP/1.1" 200 790
-INFO 2021-03-24 15:20:53,649 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:20:53,684 basehttp 154 "GET /static/xadmin/vendor/jquery/jquery.js HTTP/1.1" 200 240196
-INFO 2021-03-24 15:20:53,756 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.sortable.js HTTP/1.1" 200 42543
-INFO 2021-03-24 15:20:53,770 basehttp 154 "GET /static/xadmin/vendor/bootstrap/js/bootstrap.js HTTP/1.1" 200 58327
-INFO 2021-03-24 15:20:53,778 basehttp 154 "GET /static/xadmin/js/xadmin.main.js HTTP/1.1" 200 3401
-INFO 2021-03-24 15:20:53,785 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.core.js HTTP/1.1" 200 8195
-INFO 2021-03-24 15:20:53,835 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.portal.js HTTP/1.1" 200 1000
-INFO 2021-03-24 15:20:53,836 basehttp 154 "GET /static/xadmin/js/xadmin.responsive.js HTTP/1.1" 200 4165
-INFO 2021-03-24 15:20:53,839 basehttp 154 "GET /static/xadmin/js/xadmin.page.dashboard.js HTTP/1.1" 200 3208
-INFO 2021-03-24 15:20:53,884 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.widget.js HTTP/1.1" 200 15069
-INFO 2021-03-24 15:20:53,927 basehttp 154 "GET /static/xadmin/vendor/jquery-ui/jquery.ui.mouse.js HTTP/1.1" 200 4561
-INFO 2021-03-24 15:20:54,277 basehttp 154 "GET /static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.woff?v=4.0.3 HTTP/1.1" 200 44432
-WARNING 2021-03-24 15:20:54,442 log 228 Not Found: /favicon.ico
-WARNING 2021-03-24 15:20:54,448 basehttp 154 "GET /favicon.ico HTTP/1.1" 404 2521
-ERROR 2021-03-24 15:20:57,152 log 228 Internal Server Error: /xadmin/course/course/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\sites.py", line 300, in wrapper
-    return self.admin_view(view, cacheable)(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
-    response = view_func(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\sites.py", line 208, in inner
-    return view(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 282, in view
-    return handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\decorators.py", line 45, in _wrapper
-    return bound_method(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
-    response = view_func(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 80, in method
-    return filter_chain(filters, len(filters) - 1, _inner_method, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 49, in filter_chain
-    return func()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 74, in _inner_method
-    return func(self, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 401, in get
-    response = self.get_result_list()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 80, in method
-    return filter_chain(filters, len(filters) - 1, _inner_method, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 49, in filter_chain
-    return func()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 74, in _inner_method
-    return func(self, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 200, in get_result_list
-    return self.make_result_list()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 177, in make_result_list
-    self.result_count = self.paginator.count
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 91, in count
-    return c()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 392, in count
-    return self.query.get_count(using=self.db)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 504, in get_count
-    number = obj.get_aggregation(using, ['__count'])['__count']
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 489, in get_aggregation
-    result = compiler.execute_sql(SINGLE)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.luffy_course' doesn't exist")
-ERROR 2021-03-24 15:20:57,213 basehttp 154 "GET /xadmin/course/course/ HTTP/1.1" 500 267778
-INFO 2021-03-24 15:21:02,181 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-ERROR 2021-03-24 15:21:04,881 log 228 Internal Server Error: /xadmin/home/banner/
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
-    response = get_response(request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\sites.py", line 300, in wrapper
-    return self.admin_view(view, cacheable)(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
-    response = view_func(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\sites.py", line 208, in inner
-    return view(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 282, in view
-    return handler(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\decorators.py", line 45, in _wrapper
-    return bound_method(*args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
-    response = view_func(request, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 80, in method
-    return filter_chain(filters, len(filters) - 1, _inner_method, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 49, in filter_chain
-    return func()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 74, in _inner_method
-    return func(self, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 401, in get
-    response = self.get_result_list()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 80, in method
-    return filter_chain(filters, len(filters) - 1, _inner_method, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 49, in filter_chain
-    return func()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\base.py", line 74, in _inner_method
-    return func(self, *args, **kwargs)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 200, in get_result_list
-    return self.make_result_list()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\xadmin\views\list.py", line 177, in make_result_list
-    self.result_count = self.paginator.count
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\utils\functional.py", line 80, in __get__
-    res = instance.__dict__[self.name] = self.func(instance)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\core\paginator.py", line 91, in count
-    return c()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\query.py", line 392, in count
-    return self.query.get_count(using=self.db)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 504, in get_count
-    number = obj.get_aggregation(using, ['__count'])['__count']
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\query.py", line 489, in get_aggregation
-    result = compiler.execute_sql(SINGLE)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
-    cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 99, in execute
-    return super().execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 67, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
-    return self.cursor.execute(sql, params)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "D:\JUST\Virtualenvs\just\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-django.db.utils.ProgrammingError: (1146, "Table 'justapi.home_banner' doesn't exist")
-ERROR 2021-03-24 15:21:04,960 basehttp 154 "GET /xadmin/home/banner/ HTTP/1.1" 500 267659
-INFO 2021-03-24 15:21:06,269 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-INFO 2021-03-24 15:22:22,973 autoreload 584 Watching for file changes with StatReloader
-INFO 2021-03-24 15:22:26,997 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-INFO 2021-03-24 15:22:27,131 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:48,876 basehttp 154 "GET /xadmin/course/coursecategory/ HTTP/1.1" 200 22888
-INFO 2021-03-24 15:22:49,045 basehttp 154 "GET /static/xadmin/js/xadmin.page.list.js HTTP/1.1" 200 1105
-INFO 2021-03-24 15:22:49,051 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.bookmark.js HTTP/1.1" 200 529
-INFO 2021-03-24 15:22:49,053 basehttp 154 "GET /static/xadmin/css/xadmin.form.css HTTP/1.1" 200 3763
-INFO 2021-03-24 15:22:49,057 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.details.js HTTP/1.1" 200 2319
-INFO 2021-03-24 15:22:49,060 basehttp 154 "GET /static/xadmin/js/xadmin.page.form.js HTTP/1.1" 200 1948
-INFO 2021-03-24 15:22:49,064 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.filters.js HTTP/1.1" 200 1990
-INFO 2021-03-24 15:22:49,108 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:49,960 basehttp 154 "GET /xadmin/course/course/ HTTP/1.1" 200 24939
-INFO 2021-03-24 15:22:50,040 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:50,838 basehttp 154 "GET /xadmin/course/teacher/ HTTP/1.1" 200 23744
-INFO 2021-03-24 15:22:50,913 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:51,747 basehttp 154 "GET /xadmin/course/coursechapter/ HTTP/1.1" 200 23383
-INFO 2021-03-24 15:22:51,834 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:52,558 basehttp 154 "GET /xadmin/course/coursesection/ HTTP/1.1" 200 23660
-INFO 2021-03-24 15:22:52,643 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:54,929 basehttp 154 "GET /xadmin/home/banner/ HTTP/1.1" 200 23234
-INFO 2021-03-24 15:22:55,005 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:56,223 basehttp 154 "GET /xadmin/reversion/revision/ HTTP/1.1" 200 27954
-INFO 2021-03-24 15:22:56,342 basehttp 154 "GET /static/xadmin/vendor/bootstrap-datepicker/css/datepicker.css HTTP/1.1" 200 10225
-INFO 2021-03-24 15:22:56,352 basehttp 154 "GET /static/xadmin/vendor/select2/select2.css HTTP/1.1" 200 19226
-INFO 2021-03-24 15:22:56,360 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.css HTTP/1.1" 200 8425
-INFO 2021-03-24 15:22:56,364 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.bootstrap3.css HTTP/1.1" 200 10602
-INFO 2021-03-24 15:22:56,405 basehttp 154 "GET /static/xadmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 200 32656
-INFO 2021-03-24 15:22:56,481 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:56,488 basehttp 154 "GET /static/xadmin/js/xadmin.widget.datetime.js HTTP/1.1" 200 2979
-INFO 2021-03-24 15:22:56,497 basehttp 154 "GET /static/xadmin/vendor/select2/select2_locale_zh-hans.js HTTP/1.1" 200 694
-INFO 2021-03-24 15:22:56,513 basehttp 154 "GET /static/xadmin/js/xadmin.widget.select.js HTTP/1.1" 200 1344
-INFO 2021-03-24 15:22:56,517 basehttp 154 "GET /static/xadmin/vendor/selectize/selectize.js HTTP/1.1" 200 98602
-INFO 2021-03-24 15:22:56,547 basehttp 154 "GET /static/xadmin/vendor/select2/select2.js HTTP/1.1" 200 104906
-INFO 2021-03-24 15:22:58,153 basehttp 154 "GET /xadmin/user/user/ HTTP/1.1" 200 33241
-INFO 2021-03-24 15:22:58,254 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:22:58,273 basehttp 154 "GET /static/xadmin/js/xadmin.plugin.actions.js HTTP/1.1" 200 4198
-INFO 2021-03-24 15:22:59,724 basehttp 154 "GET /xadmin/xadmin/log/ HTTP/1.1" 200 29116
-INFO 2021-03-24 15:22:59,804 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:23:01,822 basehttp 154 "GET /xadmin/auth/group/ HTTP/1.1" 200 22600
-INFO 2021-03-24 15:23:01,900 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:23:03,492 basehttp 154 "GET /xadmin/auth/permission/ HTTP/1.1" 200 88157
-INFO 2021-03-24 15:23:03,635 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:23:06,987 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-INFO 2021-03-24 15:23:07,074 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:23:11,365 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 13379
-INFO 2021-03-24 15:23:11,440 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:23:13,137 basehttp 154 "GET /xadmin/course/coursecategory/ HTTP/1.1" 200 22888
-INFO 2021-03-24 15:23:13,228 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
-INFO 2021-03-24 15:24:15,492 autoreload 211 D:\JUST\justapi\justapi\apps\user\adminx.py changed, reloading.
-INFO 2021-03-24 15:24:19,441 autoreload 584 Watching for file changes with StatReloader
+INFO 2021-03-24 16:31:40,812 basehttp 154 "GET /course/popular/popular_course/ HTTP/1.1" 200 1528
+INFO 2021-03-24 16:31:40,819 basehttp 154 "GET /course/teacher/good_teacher/ HTTP/1.1" 200 2488
+INFO 2021-03-24 16:31:40,863 basehttp 154 "GET /home/banner/ HTTP/1.1" 200 313
+INFO 2021-03-24 16:31:40,926 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:31:40,954 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:31:40,981 basehttp 154 "GET /media/teacher/alex_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:31:40,987 basehttp 154 "GET /media/courses/lyy_linux.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:31:41,055 basehttp 154 "GET /media/banner/banner1_FMoiY0x.png HTTP/1.1" 200 485915
+INFO 2021-03-24 16:31:41,089 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:31:41,122 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:31:41,388 basehttp 154 "GET /media/banner/banner3_ngAVwyN.png HTTP/1.1" 200 1283840
+INFO 2021-03-24 16:31:41,505 basehttp 154 "GET /media/banner/banner2_ZNNilMw.png HTTP/1.1" 200 2702415
+INFO 2021-03-24 16:31:43,731 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:31:43,765 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:31:43,817 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:31:44,996 basehttp 154 "GET /course/chapters/?course=22 HTTP/1.1" 200 2
+INFO 2021-03-24 16:31:45,000 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:31:45,006 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:31:45,168 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:31:45,189 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:31:46,501 basehttp 154 "OPTIONS /order/pay/ HTTP/1.1" 200 0
+INFO 2021-03-24 16:31:47,235 basehttp 154 "POST /order/pay/ HTTP/1.1" 200 872
+INFO 2021-03-24 16:31:48,980 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4194304
+ERROR 2021-03-24 16:31:48,982 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:32:01,117 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:32:01,133 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:32:01,402 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:32:03,151 basehttp 154 "OPTIONS /order/pay/ HTTP/1.1" 200 0
+INFO 2021-03-24 16:32:03,358 basehttp 154 "POST /order/pay/ HTTP/1.1" 200 870
+INFO 2021-03-24 16:32:11,786 basehttp 154 "GET /home/banner/ HTTP/1.1" 200 313
+INFO 2021-03-24 16:32:11,873 basehttp 154 "GET /course/teacher/good_teacher/ HTTP/1.1" 200 2488
+INFO 2021-03-24 16:32:11,884 basehttp 154 "GET /course/popular/popular_course/ HTTP/1.1" 200 1528
+INFO 2021-03-24 16:32:12,720 basehttp 154 "GET /media/banner/banner1_FMoiY0x.png HTTP/1.1" 200 485915
+INFO 2021-03-24 16:32:12,736 basehttp 154 "GET /media/teacher/alex_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:32:12,737 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:32:12,844 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:32:12,865 basehttp 154 "GET /media/banner/banner3_ngAVwyN.png HTTP/1.1" 200 1283840
+INFO 2021-03-24 16:32:12,979 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:32:13,013 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:32:13,038 basehttp 154 "GET /media/courses/lyy_linux.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:32:13,109 basehttp 154 "GET /media/banner/banner2_ZNNilMw.png HTTP/1.1" 200 2702415
+INFO 2021-03-24 16:32:13,993 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:32:14,021 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:32:14,136 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:32:16,175 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:32:16,184 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:32:16,185 basehttp 154 "GET /course/chapters/?course=22 HTTP/1.1" 200 2
+INFO 2021-03-24 16:32:16,283 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:32:16,448 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:32:31,771 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4210688
+ERROR 2021-03-24 16:32:31,773 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:33:19,202 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:33:19,229 basehttp 154 "GET /course/chapters/?course=22 HTTP/1.1" 200 2
+INFO 2021-03-24 16:33:19,233 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:33:19,453 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:33:19,695 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:28,408 basehttp 154 "GET /home/banner/ HTTP/1.1" 200 313
+INFO 2021-03-24 16:33:28,456 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4898816
+ERROR 2021-03-24 16:33:28,463 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:33:28,477 basehttp 154 "GET /course/teacher/good_teacher/ HTTP/1.1" 200 2488
+INFO 2021-03-24 16:33:28,481 basehttp 154 "GET /course/popular/popular_course/ HTTP/1.1" 200 1528
+INFO 2021-03-24 16:33:28,623 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:33:28,628 basehttp 154 "GET /media/banner/banner1_FMoiY0x.png HTTP/1.1" 200 485915
+INFO 2021-03-24 16:33:28,701 basehttp 154 "GET /media/teacher/alex_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:33:28,737 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:33:28,755 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:33:28,779 basehttp 154 "GET /media/banner/banner3_ngAVwyN.png HTTP/1.1" 200 1283840
+INFO 2021-03-24 16:33:28,841 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:28,921 basehttp 154 "GET /media/courses/lyy_linux.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:28,982 basehttp 154 "GET /media/banner/banner2_ZNNilMw.png HTTP/1.1" 200 2702415
+INFO 2021-03-24 16:33:35,066 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:33:35,093 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:33:35,182 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:37,095 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:33:37,097 basehttp 154 "GET /course/chapters/?course=22 HTTP/1.1" 200 2
+INFO 2021-03-24 16:33:37,106 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:33:37,158 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:33:37,350 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:52,585 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 5136384
+ERROR 2021-03-24 16:33:52,588 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:33:55,301 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:33:55,316 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 7487488
+ERROR 2021-03-24 16:33:55,325 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:33:55,349 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:33:55,473 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:56,730 basehttp 154 "GET /course/free/?ordering=-id&course_category=1&page_size=2&page=1 HTTP/1.1" 200 2577
+INFO 2021-03-24 16:33:56,865 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:33:56,889 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:58,123 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:33:58,123 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:33:58,129 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:33:58,284 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:33:58,317 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:34:10,642 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 5079040
+INFO 2021-03-24 16:34:10,658 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+ERROR 2021-03-24 16:34:10,659 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:34:10,687 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:34:10,799 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:34:12,235 basehttp 154 "GET /course/free/?ordering=-id&course_category=1&page_size=2&page=1 HTTP/1.1" 200 2577
+INFO 2021-03-24 16:34:12,379 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:34:12,399 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:34:14,839 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:34:14,844 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:34:14,845 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:34:15,008 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:34:15,031 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:34:30,286 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 1859584
+ERROR 2021-03-24 16:34:30,288 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:36:11,697 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:36:11,725 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:36:11,796 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:36:13,706 basehttp 154 "GET /course/chapters/?course=22 HTTP/1.1" 200 2
+INFO 2021-03-24 16:36:13,713 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:36:13,718 basehttp 154 "GET /course/free/22/ HTTP/1.1" 200 768
+INFO 2021-03-24 16:36:13,770 basehttp 154 "GET /media/teacher/myy_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:36:13,955 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:36:16,488 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4210688
+ERROR 2021-03-24 16:36:16,492 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:36:16,504 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+INFO 2021-03-24 16:36:16,531 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:36:16,626 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:36:18,906 basehttp 154 "GET /course/free/?ordering=-id&course_category=1&page_size=2&page=1 HTTP/1.1" 200 2577
+INFO 2021-03-24 16:36:19,012 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:36:19,038 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:36:19,947 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:36:19,950 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:36:19,951 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:36:19,982 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:36:20,215 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:38:45,560 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:38:45,598 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:38:45,604 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:38:45,656 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 5095424
+ERROR 2021-03-24 16:38:45,658 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:38:45,838 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:38:46,497 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:38:48,951 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 6078464
+INFO 2021-03-24 16:38:48,951 basehttp 154 "GET /course/categories/ HTTP/1.1" 200 91
+ERROR 2021-03-24 16:38:48,963 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:38:48,992 basehttp 154 "GET /course/free/?ordering=-id&page_size=2&page=1 HTTP/1.1" 200 1654
+INFO 2021-03-24 16:38:49,089 basehttp 154 "GET /media/courses/course.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:38:51,408 basehttp 154 "GET /course/free/?ordering=-id&course_category=1&page_size=2&page=1 HTTP/1.1" 200 2577
+INFO 2021-03-24 16:38:51,472 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:38:51,525 basehttp 154 "GET /media/courses/alex_python.png HTTP/1.1" 200 251844
+INFO 2021-03-24 16:38:52,144 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:38:52,145 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:38:52,148 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:38:52,278 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:38:52,308 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:39:12,170 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4186112
+ERROR 2021-03-24 16:39:12,171 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:39:47,212 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:39:47,220 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:39:47,225 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:39:47,409 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:39:47,639 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:40:02,058 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:40:02,072 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:40:02,075 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:40:02,227 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4915200
+ERROR 2021-03-24 16:40:02,230 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:40:02,487 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:40:02,795 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:40:04,770 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4243456
+ERROR 2021-03-24 16:40:04,773 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:40:08,550 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:40:08,569 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:40:08,572 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:40:08,762 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:40:09,036 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:44:14,589 autoreload 584 Watching for file changes with StatReloader
+INFO 2021-03-24 16:44:28,596 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:44:28,624 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:44:28,630 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:44:28,804 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:44:29,139 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:44:42,595 basehttp 154 "GET /user/check_telephone/?telephone=18362883887 HTTP/1.1" 200 37
+INFO 2021-03-24 16:44:44,668 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4882432
+ERROR 2021-03-24 16:44:44,670 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:44:49,322 basehttp 154 "GET /user/send/?telephone=18362883887 HTTP/1.1" 200 40
+INFO 2021-03-24 16:45:24,721 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 7372800
+ERROR 2021-03-24 16:45:24,724 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59
+INFO 2021-03-24 16:45:29,320 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:45:29,360 basehttp 154 "GET /course/chapters/?course=2 HTTP/1.1" 200 300
+INFO 2021-03-24 16:45:29,364 basehttp 154 "GET /course/free/2/ HTTP/1.1" 200 958
+INFO 2021-03-24 16:45:29,557 basehttp 154 "GET /media/teacher/mjj_icon.png HTTP/1.1" 200 56719
+INFO 2021-03-24 16:45:29,796 basehttp 154 "GET /media/courses/mjj_python.png HTTP/1.1" 200 335502
+INFO 2021-03-24 16:45:45,194 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 200 4210688
+ERROR 2021-03-24 16:45:45,195 basehttp 154 "GET /media/attachment/%E5%88%AB%E5%86%8D%E6%B5%AA%E8%B4%B9%E4%BD%A0%E7%9A%84%E6%97%B6%E9%97%B4.mp4 HTTP/1.1" 500 59

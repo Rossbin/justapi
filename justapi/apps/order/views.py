@@ -41,7 +41,7 @@ class SuccessView(APIView):
         '''
         支付宝回调接口
         '''
-        from justapi.libs.al_pay.pem import alipay
+        from justapi.libs.al_pay import alipay
         from justapi.utils.logger import log
         # 注意这个小细节,把他转成字典
         data = request.data.dict()

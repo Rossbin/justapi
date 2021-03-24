@@ -1,28 +1,10 @@
 
-
-from qcloudsms_py import SmsSingleSender
-from justapi.utils.logger import log        # 记录错误日志，将发送失败的手机放入到日志中
-from . import settings
-
-
-# 生成一个四位随机验证码
-def get_code():
-    import random
-    s_code=''
-    for i in range(4):
-        s_code+=str(random.randint(0,9))
-    return s_code
-
-
-def send_message(phone,code):
-
-    ssender = SmsSingleSender(settings.appid, settings.appkey)
-    params = [code, '3']  # 当模板没有参数时，`params = []`
-    try:
-        result = ssender.send_with_param(86, phone, settings.template_id, params, sign=settings.sms_sign, extend="", ext="")
-        if result.get('result') == 0:
-            return True
-        else:
-            return False
-    except Exception as e:
-        log.error('手机号：%s,短信发送失败,错误为：%s'%(phone,str(e)))
+# 短信的配置
+# 短信应用 SDK AppID
+appid = 1400476407  # SDK AppID 以1400开头
+# 短信应用 SDK AppKey
+appkey = "e5c74994b82834557735458337809abc"
+# 短信模板ID，需要在短信控制台中申请
+template_id = 847173  # NOTE: 这里的模板 ID`7839`只是示例，真实的模板 ID 需要在短信控制台中申请
+# 签名
+sms_sign = "justedubs"  # NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台中申请

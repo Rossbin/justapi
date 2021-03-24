@@ -45,7 +45,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def _gen_pay_url(self,out_trade_no,total_amout,subject):
         # total_amout是Decimal类型，识别不了，需要转换成float类型
-        from justapi.libs.al_pay.pem import alipay,gateway
+        from libs.al_pay import alipay,gateway
         order_string = alipay.api_alipay_trade_page_pay    (
             out_trade_no=out_trade_no,
             total_amount=float(total_amout),    # float类型
