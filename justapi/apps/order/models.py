@@ -32,7 +32,7 @@ class Order(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     updated_time = models.DateTimeField(auto_now=True, verbose_name='最后更新时间')
     class Meta:
-        db_table = "luffy_order"
+        db_table = "just_order"
         verbose_name = "订单记录"
         verbose_name_plural = "订单记录"
 
@@ -61,7 +61,7 @@ class OrderDetail(models.Model):
     real_price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程实价")
 
     class Meta:
-        db_table = "luffy_order_detail"
+        db_table = "just_order_detail"
         verbose_name = "订单详情"
         verbose_name_plural = "订单详情"
 

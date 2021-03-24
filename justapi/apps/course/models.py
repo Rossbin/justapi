@@ -51,7 +51,7 @@ class CourseCategory(BaseModel):
     """
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
     class Meta:
-        db_table = "luffy_course_category"
+        db_table = "just_course_category"
         verbose_name = "分类"
         verbose_name_plural = verbose_name
 
@@ -107,7 +107,7 @@ class Course(BaseModel):
     teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师",db_constraint=False)
     course_category = models.ForeignKey("CourseCategory", on_delete=models.SET_NULL, db_constraint=False, null=True, blank=True,verbose_name="课程分类")
     class Meta:
-        db_table = "luffy_course"
+        db_table = "just_course"
         verbose_name = "课程"
         verbose_name_plural = "课程"
 
@@ -170,7 +170,7 @@ class Teacher(BaseModel):
     brief = models.TextField(max_length=1024, verbose_name="导师描述")
     email = models.EmailField(max_length=64,verbose_name="导师联系方式",default='316504849@qq.com')
     class Meta:
-        db_table = "luffy_teacher"
+        db_table = "just_teacher"
         verbose_name = "导师"
         verbose_name_plural = verbose_name
 
@@ -194,7 +194,7 @@ class CourseChapter(BaseModel):
     pub_date = models.DateField(verbose_name="发布日期", auto_now_add=True)
 
     class Meta:
-        db_table = "luffy_course_chapter"
+        db_table = "just_course_chapter"
         verbose_name = "章节"
         verbose_name_plural = verbose_name
 
@@ -224,7 +224,7 @@ class CourseSection(BaseModel):
     free_trail = models.BooleanField(verbose_name="是否可试看", default=False)
 
     class Meta:
-        db_table = "luffy_course_Section"
+        db_table = "just_course_Section"
         verbose_name = "课时"
         verbose_name_plural = verbose_name
 
