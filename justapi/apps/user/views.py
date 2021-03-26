@@ -2,7 +2,10 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework.viewsets import ViewSet, GenericViewSet
-from rest_framework.mixins import CreateModelMixin
+from rest_framework.mixins import CreateModelMixin,RetrieveModelMixin
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication     # 导入JWT认证模块
+from rest_framework.permissions import IsAuthenticated                       # 配合JWT的权限类
+
 from . import serializer  # 序列化器
 from justapi.utils.response import APIResponse
 from rest_framework.decorators import action
@@ -17,12 +20,20 @@ class LoginView(ViewSet):
             token = ser.context['token']
             # ser.context['user'] 是user对象
             username = ser.context['user'].username
+            queryset = models.User.objects.filter(username=username).first()
+            serializer_class = serializer.UserSerilaizer(queryset)
+            # user_ser = serializer.UserSerilaizer(queryset)
+            # print(user_ser.data)
+            # icon = ser.context['user'].icon
+            # user = ser.context['user']
+            # print('user',user.icon)
+
             # {'code':1
             #  msg:'chengg'
             #  token:'sdfasdf'
             #  username:'root'
             #  }
-            return APIResponse(token=token, username=username)
+            return APIResponse(token=token, username=username, icon=serializer_class.data['icon'], id=serializer_class.data['id'])
         else:
             return APIResponse(code=0, msg=ser.errors)
 
@@ -97,3 +108,14 @@ class RegisterView(GenericViewSet, CreateModelMixin):
         response = super().create(request, *args, **kwargs)
         username = response.data.get('username')
         return APIResponse(code=1, msg='注册成功', username=username)
+
+
+class getUserView(GenericViewSet, RetrieveModelMixin):
+    authentication_classes = [JSONWebTokenAuthentication,]      # 使用JWT认证类，有问题：需要配合一个权限类
+    permission_classes = [IsAuthenticated,]                     # 配合JWT，必须登录后才能进入
+    queryset = models.User.objects.all()
+    serializer_class = serializer.GetUserserializer
+
+    def get(self, request, pk):
+        return APIResponse(self.retrieve(request,pk))
+

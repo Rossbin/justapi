@@ -26,7 +26,7 @@ class Order(models.Model):
     trade_no = models.CharField(max_length=64, null=True, verbose_name="流水号")  # 支付宝生成回来的
     order_status = models.SmallIntegerField(choices=status_choices, default=0, verbose_name="订单状态")
     pay_type = models.SmallIntegerField(choices=pay_choices, default=1, verbose_name="支付方式")
-    pay_time = models.DateTimeField(null=True, verbose_name="支付时间")
+    pay_time = models.DateTimeField(null=True,  verbose_name="支付时间")
     # 一个用户可以下多个订单，一个订单只属于一个用户，一对多的关系，关联字段写在多个一方，写在order方
     user = models.ForeignKey(User, related_name='order_user', on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="下单用户")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')

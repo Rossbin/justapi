@@ -10,10 +10,11 @@ class UserSerilaizer(serializers.ModelSerializer):
 
     class Meta:
         model = models.User
-        fields = ['username', 'password', 'id']
+        fields = ['username', 'password', 'id', 'icon']
         extra_kwargs = {                     # 校验内容
             'id': {'read_only': True},
             'password': {'write_only': True}
+
         }
 
     def validate(self, attrs):
@@ -137,4 +138,38 @@ class UserRegisterSerilaizer(serializers.ModelSerializer):
     def create(self, validated_data):
         user=models.User.objects.create_user(**validated_data)
         return user
+
+
+
+
+# 个人中心
+class GetUserserializer(serializers.ModelSerializer):
+    username = serializers.CharField()       # 因为是唯一，所以得重写
+    re_password=serializers.CharField(max_length=16,min_length=4,required=True,write_only=True) # 因为re_password在表中没有，需要在这定义
+
+    class Meta:
+        model = models.User
+        fields = ['username', 'password', 'id', 're_password','icon', 'email', 'telephone', 'first_name', 'gender', 'tencent','signature']
+        extra_kwargs = {                     # 校验内容
+            'id': {'read_only': True},
+            'username':{'max_length':16},
+            'password': {'write_only': True},
+
+        }
+
+    # 局部钩子
+    def validate_telephone(self,attrs):
+        if re.match('^1[3-9][0-9]{9}$', attrs):
+
+            return attrs
+        else:
+            raise ValidationError('手机号不合法')
+
+
+    # 全局钩子
+    def validate(self, attrs):
+        if not attrs.get('password')==attrs.get('re_password'):
+            raise ValidationError('两次密码不一致')
+        attrs.pop('re_password') # 剔除该字段，因为数据库没有这个字段
+        return attrs
 
