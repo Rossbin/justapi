@@ -50,6 +50,7 @@ class CourseCategory(BaseModel):
 
     """
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
+    button = models.BooleanField(default=False ,verbose_name="前端按钮遍历")
     class Meta:
         db_table = "just_course_category"
         verbose_name = "分类"

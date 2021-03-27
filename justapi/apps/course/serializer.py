@@ -5,7 +5,7 @@ from . import models
 class CourseCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CourseCategory
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'button']
 
 
 class TeacherSerializer(serializers.ModelSerializer):

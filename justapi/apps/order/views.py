@@ -72,8 +72,8 @@ class SuccessView(APIView):
 
 from rest_framework.exceptions import APIException
 class buyOrderView(APIView):
-    # authentication_classes = [JSONWebTokenAuthentication,]      # 使用JWT认证类，有问题：需要配合一个权限类
-    # permission_classes = [IsAuthenticated,]                     # 配合JWT，必须登录后才能进入
+    authentication_classes = [JSONWebTokenAuthentication,]      # 使用JWT认证类，有问题：需要配合一个权限类
+    permission_classes = [IsAuthenticated,]                     # 配合JWT，必须登录后才能进入
     # queryset = models.Order
     # serializer_class = serializer.BuyOrderSerializer
 

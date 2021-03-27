@@ -8,4 +8,4 @@ class User(AbstractUser):
     icon = models.ImageField(upload_to='icon', default='icon/default.png')
     gender = models.IntegerField(choices=((0,'男'),(1,'女')), default=0)
     tencent = models.IntegerField(default=None)
-    signature = models.CharField(max_length=64, default=None)
+    signature = models.CharField(max_length=64, default='你还没有填简介啊~~')

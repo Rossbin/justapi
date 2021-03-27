@@ -96,7 +96,7 @@ from course.models import Course
 class OrderCourseserializer(serializers.ModelSerializer):
     class Meta:
         model = models.Course
-        fields = ['name', 'course_img']
+        fields = ['id','name', 'course_img']
 
 
 class OrderDtailserializer(serializers.ModelSerializer):
@@ -106,7 +106,7 @@ class OrderDtailserializer(serializers.ModelSerializer):
     class Meta:
         model = models.OrderDetail
         # fields = ['id', 'price','real_price','order','course','course_namme','course_img']
-        fields = ['id', 'price','real_price','order','course']
+        fields = [ 'price','real_price','course']
 
 
 class BuyOrderSerializer(serializers.ModelSerializer):
