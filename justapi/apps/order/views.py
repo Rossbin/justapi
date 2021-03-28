@@ -71,17 +71,32 @@ class SuccessView(APIView):
 
 
 from rest_framework.exceptions import APIException
+from .paginations import PageNumberPagination
 class buyOrderView(APIView):
     authentication_classes = [JSONWebTokenAuthentication,]      # 使用JWT认证类，有问题：需要配合一个权限类
     permission_classes = [IsAuthenticated,]                     # 配合JWT，必须登录后才能进入
+
     # queryset = models.Order
     # serializer_class = serializer.BuyOrderSerializer
 
-    def get(self,request,pk):
-        order = models.Order.objects.all().filter(user=pk,order_status=True)
+    def get(self,request,pk,*args,**kwargs):
+        order = models.Order.objects.all().filter(user=pk,order_status=True).order_by('id')   # 这里如果不加这个东西会报错
+
+        # 分页
+        page_cursor = PageNumberPagination()
+        order = page_cursor.paginate_queryset(order,request,view=self)
+        next_url = page_cursor.get_next_link()
+        pr_url = page_cursor.get_previous_link()
+        count = page_cursor.page.paginator.count
+
+        # print("下一页",next_url)
+        # print("上一页",pr_url)
+
+
         order_ser = serializer.BuyOrderSerializer(order,many=True,context={'request':request})
         result = order_ser.data
+
         if result:
-            return APIResponse(code=1,msg='获取成功',data=result)
+            return APIResponse(code=1,msg='获取成功',data=result,count=count,next=next_url,previou=pr_url)
         else:
             raise APIException()

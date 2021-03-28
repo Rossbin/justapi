@@ -17,7 +17,7 @@ def banner_update():
     # print(serializer_banner.data)
     for banner in serializer_banner.data:
         banner['img']='http://127.0.0.1:8000'+banner['img']
-    cache.set('banner_list',serializer_banner.data)
+    cache.set('banner_list',serializer_banner.data)   # 存入django缓存
     # import time
     # time.sleep(1)
     # banner_list=cache.get('banner_list')

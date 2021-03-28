@@ -42,6 +42,8 @@ from django.db import models
 #     period = models.IntegerField(verbose_name='学习建议周期(month)', default=0)
 
 from justapi.utils.models import BaseModel
+
+
 # 实际路飞课程相关表，以免费课为例
 class CourseCategory(BaseModel):
     """分类
@@ -50,11 +52,12 @@ class CourseCategory(BaseModel):
 
     """
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
-    button = models.BooleanField(default=False ,verbose_name="前端按钮遍历")
+    button = models.BooleanField(default=False, verbose_name="前端按钮遍历")
+
     class Meta:
         db_table = "just_course_category"
         verbose_name = "分类"
-        verbose_name_plural = verbose_name
+        verbose_name_plural = verbose_name  # xadmin中要显示的中文
 
     def __str__(self):
         return "%s" % self.name
@@ -94,7 +97,11 @@ class Course(BaseModel):
     level = models.SmallIntegerField(choices=level_choices, default=0, verbose_name="难度等级")
     pub_date = models.DateField(verbose_name="发布日期", auto_now_add=True)
     period = models.IntegerField(verbose_name="建议学习周期(day)", default=7)
-    attachment_path = models.FileField(upload_to="attachment", max_length=128, verbose_name="课件路径", blank=True, null=True)
+    # attachment_path = models.FileField(upload_to="attachment", max_length=128, verbose_name="课件路径", blank=True,
+    #                                    null=True)
+    attachment_path = models.CharField(max_length=255, verbose_name="课程介绍链接", blank=True,
+                                       help_text="若是video，填vid,若是文档，填link", null=True, default=None)
+
     status = models.SmallIntegerField(choices=status_choices, default=0, verbose_name="课程状态")
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价", default=0)
     popular = models.SmallIntegerField(choices=nice_choices, default=0, verbose_name="课程受欢迎程度")
@@ -105,8 +112,11 @@ class Course(BaseModel):
     pub_sections = models.IntegerField(verbose_name="课时更新数量", default=0)
 
     # 关联字段
-    teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师",db_constraint=False)
-    course_category = models.ForeignKey("CourseCategory", on_delete=models.SET_NULL, db_constraint=False, null=True, blank=True,verbose_name="课程分类")
+    teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师",
+                                db_constraint=False)
+    course_category = models.ForeignKey("CourseCategory", on_delete=models.SET_NULL, db_constraint=False, null=True,
+                                        blank=True, verbose_name="课程分类")
+
     class Meta:
         db_table = "just_course"
         verbose_name = "课程"
@@ -118,22 +128,24 @@ class Course(BaseModel):
     @property
     def course_type_name(self):
         return self.get_course_type_display()
+
     @property
     def level_name(self):
         return self.get_level_display()
+
     @property
     def status_name(self):
         return self.get_status_display()
 
     @property
     def section_list(self):
-        ll=[]
+        ll = []
         # 根据课程取出所有章节（正向查询，字段名.all()）
-        course_chapter_list=self.coursechapters.all()
+        course_chapter_list = self.coursechapters.all()
         for course_chapter in course_chapter_list:
             # 通过章节对象，取到章节下所有的课时（反向查询）
             # course_chapter.表名小写_set.all() 现在变成了course_chapter.coursesections.all()
-            course_sections_list=course_chapter.coursesections.all()
+            course_sections_list = course_chapter.coursesections.all()
             for course_section in course_sections_list:
                 ll.append({
                     'name': course_section.name,
@@ -141,10 +153,11 @@ class Course(BaseModel):
                     'duration': course_section.duration,
                     'free_trail': course_section.free_trail,
                 })
-                if len(ll)>=4:
+                if len(ll) >= 4:
                     return ll
 
         return ll
+
 
 
 
@@ -169,7 +182,8 @@ class Teacher(BaseModel):
     signature = models.CharField(max_length=255, verbose_name="导师签名", help_text="导师签名", blank=True, null=True)
     image = models.ImageField(upload_to="teacher", null=True, verbose_name="导师封面")
     brief = models.TextField(max_length=1024, verbose_name="导师描述")
-    email = models.EmailField(max_length=64,verbose_name="导师联系方式",default='316504849@qq.com')
+    email = models.EmailField(max_length=64, verbose_name="导师联系方式", default='316504849@qq.com')
+
     class Meta:
         db_table = "just_teacher"
         verbose_name = "导师"
@@ -183,12 +197,12 @@ class Teacher(BaseModel):
         return self.get_role_display()
 
 
-
 class CourseChapter(BaseModel):
     """章节
     章节跟课程是一（课程）对多（章节多）
     """
-    course = models.ForeignKey("Course", related_name='coursechapters', on_delete=models.CASCADE, verbose_name="课程名称",db_constraint=False)
+    course = models.ForeignKey("Course", related_name='coursechapters', on_delete=models.CASCADE, verbose_name="课程名称",
+                               db_constraint=False)
     chapter = models.SmallIntegerField(verbose_name="第几章", default=1)
     name = models.CharField(max_length=128, verbose_name="章节标题")
     summary = models.TextField(verbose_name="章节介绍", blank=True, null=True)
@@ -203,7 +217,6 @@ class CourseChapter(BaseModel):
         return "%s:(第%s章)%s" % (self.course, self.chapter, self.name)
 
 
-
 class CourseSection(BaseModel):
     """课时
         章节和课时是一对多的关系，关联字段写在多的一方，课时
@@ -214,7 +227,7 @@ class CourseSection(BaseModel):
         (2, '视频')
     )
     chapter = models.ForeignKey("CourseChapter", related_name='coursesections', on_delete=models.CASCADE,
-                                verbose_name="课程章节",db_constraint=False)
+                                verbose_name="课程章节", db_constraint=False)
     name = models.CharField(max_length=128, verbose_name="课时标题")
     orders = models.PositiveSmallIntegerField(verbose_name="课时排序")
     section_type = models.SmallIntegerField(default=2, choices=section_type_choices, verbose_name="课时种类")
@@ -235,5 +248,3 @@ class CourseSection(BaseModel):
     @property
     def section_type_name(self):
         return self.get_section_type_display()
-
-

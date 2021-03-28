@@ -4,7 +4,7 @@ from celery import Celery
 # 加载django环境
 import os
 import django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "luffyapi.settings.dev")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "justapi.settings.dev")
 django.setup()
 
 broker='redis://127.0.0.1:6379/1'  #broker任务队列
@@ -31,5 +31,9 @@ app.conf.beat_schedule = {
     }
 }
 
+
+
 # 一定要启动beat
 # celery beat -A celery_task -l info
+# work启动
+# celery worker -A celery_task -l info -P eventlet

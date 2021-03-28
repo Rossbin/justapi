@@ -57,6 +57,7 @@ class CourseSectionSerializer(serializers.ModelSerializer):
 class CourseChapterSerializer(serializers.ModelSerializer):
     # 子序列化的方式
     coursesections=CourseSectionSerializer(many=True)
+
     class Meta:
         model=models.CourseChapter
         fields=['name','summary','chapter','coursesections']

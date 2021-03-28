@@ -113,8 +113,10 @@ class BuyOrderSerializer(serializers.ModelSerializer):
     order_courses = OrderDtailserializer(many=True,read_only=True)
     order_status = serializers.CharField(source='get_order_status_display')
     updated_time = serializers.DateTimeField(format="%Y-%m-%d")
+
     class Meta:
         model = models.Order
         fields = ['user', 'out_trade_no', 'updated_time','order_status', 'order_courses']
+
 
 
