@@ -140,37 +140,26 @@ class CouresSearchView(GenericViewSet,ListModelMixin):
 
 
 
+
 # 优秀课程接口
 class CoursePopularView(GenericViewSet,ListModelMixin):
-    queryset = models.Course.objects.filter(is_delete=False,is_show=True,popular=True)
+    queryset = models.Course.objects.filter(is_delete=False,is_show=True).order_by('orders')
     serializer_class = serializer.CoursePopularSerializer
-    @action(methods=['GET'],detail=False)
-    def popular_course(self,requset):
-        courses = self.get_queryset()[:3]
-        course_serializer = self.get_serializer(courses,many=True)
-        return Response(course_serializer.data)
+
+    filter_backends=[DjangoFilterBackend,OrderingFilter,MyFilter]
+    ordering_fields=['id', 'popular']
+    filter_fields=['course_category']
 
 
-# 项目课程接口
+
+# 实践项目课程接口
 class CourseProjectView(GenericViewSet,ListModelMixin):
     queryset = models.Course.objects.filter(is_delete=False,is_show=True,project=True)
     serializer_class = serializer.CourseProjectSerializer
-    @action(methods=['GET'],detail=False)
-    def item_course(self,request):
-        courses = self.get_queryset()[:12]
-        courses_serializer = self.get_serializer(courses,many=True)
-        return Response(courses_serializer.data)
+    pagination_class = PageNumberPagination
+    filter_backends=[DjangoFilterBackend]
+    filter_fields=['course_category']
 
 
 
-
-# 优秀教师接口
-class CourseTeacherView(GenericViewSet,ListModelMixin):
-    queryset = models.Teacher.objects.filter(is_delete=False,is_show=True,level=True)
-    serializer_class = serializer.TeacherSerializer
-    @action(methods=['GET'],detail=False)
-    def good_teacher(self,request):
-        teachers = self.get_queryset()[:8]
-        teacher_serializer = self.get_serializer(teachers,many=True)
-        return Response(teacher_serializer.data)
 

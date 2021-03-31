@@ -9,6 +9,7 @@ router.register('register', views.RegisterView, 'register')  # /user/register   
 router.register('getuser', views.getUserView, 'getuser')
 urlpatterns = [
     path('', include(router.urls)),
+    path('retrieve/', views.PassWord.as_view()),
 
 
 ]

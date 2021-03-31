@@ -146,14 +146,18 @@ class UserRegisterSerilaizer(serializers.ModelSerializer):
 class GetUserserializer(serializers.ModelSerializer):
     username = serializers.CharField()       # 因为是唯一，所以得重写
     re_password=serializers.CharField(max_length=16,min_length=4,required=True,write_only=True) # 因为re_password在表中没有，需要在这定义
-
+    gender = serializers.CharField(source='get_gender_display')
+    truepass = serializers.CharField(max_length=32, min_length=4,required=True,write_only=True)  # 原密码
     class Meta:
         model = models.User
-        fields = ['username', 'password', 'id', 're_password','icon', 'email', 'telephone', 'first_name', 'gender', 'tencent','signature']
+        fields = ['username', 'password', 'id', 're_password', 'truepass','icon', 'email', 'telephone', 'first_name', 'gender', 'tencent','signature']
         extra_kwargs = {                     # 校验内容
             'id': {'read_only': True},
-            'username':{'max_length':16},
+            'username':{'max_length':16, 'read_only': True},
             'password': {'write_only': True},
+            'telephone': {'read_only': True}
+
+
 
         }
 
@@ -167,9 +171,27 @@ class GetUserserializer(serializers.ModelSerializer):
 
 
     # 全局钩子
-    def validate(self, attrs):
-        if not attrs.get('password')==attrs.get('re_password'):
-            raise ValidationError('两次密码不一致')
-        attrs.pop('re_password') # 剔除该字段，因为数据库没有这个字段
-        return attrs
+    # def validate(self, attrs):
+    #     username = attrs.get('username')
+    #     password = attrs.get('truepass')
+    #     user = models.User.objects.filter(username=username).first()
+    #     if not user:
+    #         raise ValidationError('没有该用户')
+    #     print(username)
+    #     print(password)
+    #     ret = user.check_password(password)
+    #     if not attrs.get('password')==attrs.get('re_password'):
+    #         raise ValidationError('两次密码不一致')
+    #     if attrs.get('re_password'):
+    #         attrs.pop('truepass')
+    #         attrs.pop('re_password')   # 剔除该字段，因为数据库没有这个字段
+    #     if not ret:
+    #         raise ValidationError('密码错误')
+    #     user.set_password(password)
+    #     user.save()
+    #     attrs.pop('password')
+    #     return attrs
+
+
+
 

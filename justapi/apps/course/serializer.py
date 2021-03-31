@@ -72,10 +72,10 @@ class CoursePopularSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Course
-        fields = ['name','course_img','brief','popular','teacher','project']
+        fields = ['id','name','course_img','brief','popular','teacher','project']
 
 # 项目课程序列化
 class CourseProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Course
-        fields = ['name', 'course_img', 'brief', 'popular', 'project']
+        fields = ['id','name', 'course_img', 'brief', 'students', 'project']

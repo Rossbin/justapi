@@ -80,10 +80,7 @@ class Course(BaseModel):
         (1, '下线'),
         (2, '预上线'),
     )
-    nice_choices = (
-        (0, '一般课程'),
-        (1, '受欢迎课程'),
-    )
+
     project_choices = (
         (0, '理论课程'),
         (1, '项目实战'),
@@ -104,7 +101,7 @@ class Course(BaseModel):
 
     status = models.SmallIntegerField(choices=status_choices, default=0, verbose_name="课程状态")
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价", default=0)
-    popular = models.SmallIntegerField(choices=nice_choices, default=0, verbose_name="课程受欢迎程度")
+    popular = models.IntegerField(default=0, verbose_name="课程受欢迎程度")
     project = models.SmallIntegerField(choices=project_choices, default=0, verbose_name="是否为项目实战课程")
     # 优化字段
     students = models.IntegerField(verbose_name="学习人数", default=0)

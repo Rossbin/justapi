@@ -8,7 +8,7 @@ class MyFilter(BaseFilterBackend):
         # 真正的过滤规则
         # params=request.GET.get('teacher')
         # queryset.filter('''''')
-        return queryset[:1]
+        return queryset[:10]
 
 
 
