@@ -103,6 +103,7 @@ class Course(BaseModel):
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价", default=0)
     popular = models.IntegerField(default=0, verbose_name="课程受欢迎程度")
     project = models.SmallIntegerField(choices=project_choices, default=0, verbose_name="是否为项目实战课程")
+    brief_text = models.TextField(max_length=2048, verbose_name="章节介绍", null=True, blank=True)
     # 优化字段
     students = models.IntegerField(verbose_name="学习人数", default=0)
     sections = models.IntegerField(verbose_name="总课时数量", default=0)
@@ -179,7 +180,7 @@ class Teacher(BaseModel):
     signature = models.CharField(max_length=255, verbose_name="导师签名", help_text="导师签名", blank=True, null=True)
     image = models.ImageField(upload_to="teacher", null=True, verbose_name="导师封面")
     brief = models.TextField(max_length=1024, verbose_name="导师描述")
-    email = models.EmailField(max_length=64, verbose_name="导师联系方式", default='316504849@qq.com')
+    email = models.EmailField(max_length=64, verbose_name="导师联系方式", default='just@qq.com')
 
     class Meta:
         db_table = "just_teacher"

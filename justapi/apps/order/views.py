@@ -9,6 +9,7 @@ from rest_framework.decorators import action
 from . import models
 from . import serializer
 from utils.response import APIResponse
+from user.serializer import UserPraiseSerilaizer,CommentSerializer
 
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication     # 导入JWT认证模块
 from rest_framework.permissions import IsAuthenticated                       # 配合JWT的权限类
@@ -38,6 +39,30 @@ class SuccessView(APIView):
         order=models.Order.objects.filter(out_trade_no=out_trade_no).first()
                 # 测试环境数据库的回调
         models.Order.objects.filter(out_trade_no=out_trade_no).update(order_status=1)
+
+        # 及时修改学生人数
+        # =============================================================
+        pdpk = order.id
+        # print("修改的订单数据库id",pdpk)
+        pd_course = models.OrderDetail.objects.filter(id=pdpk).first()
+        cid = pd_course.course.id
+        uid = pd_course.user.id
+        course = models.Course.objects.filter(id=cid).first()
+        students = course.students + 20
+        # print("修改后的学生人数",students)
+        models.Course.objects.filter(id=cid).update(students=students)
+        # =============================================================
+        # 创建点赞表中的对应关系
+        data = {"user": uid, "course": cid}
+        praise_ser = UserPraiseSerilaizer(data=data)
+        praise_ser.is_valid(raise_exception=True)
+        praise_ser.save()
+        # =============================================================
+        # 创建评论表中的对应关系
+        data = {"user": uid, "course": cid}
+        praise_ser = CommentSerializer(data=data)
+        praise_ser.is_valid(raise_exception=True)
+        praise_ser.save()
 
         if order.order_status==1:
             return Response(True)

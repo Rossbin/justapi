@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.viewsets import ViewSet, GenericViewSet
 from rest_framework.views import APIView
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin,ListModelMixin
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication  # 导入JWT认证模块
 from rest_framework.permissions import IsAuthenticated  # 配合JWT的权限类
 from rest_framework.exceptions import ValidationError
@@ -129,6 +129,7 @@ class getUserView(GenericViewSet, RetrieveModelMixin, UpdateModelMixin):
 class PassWord(APIView):
     authentication_classes = [JSONWebTokenAuthentication, ]  # 使用JWT认证类，有问题：需要配合一个权限类
     permission_classes = [IsAuthenticated, ]  # 配合JWT，必须登录后才能进入
+
     def post(self, request):
         # 获取参数
         username = request.POST.get('username')
@@ -140,8 +141,8 @@ class PassWord(APIView):
 
         if not user:
             raise ValidationError('没有该用户')
-        print(username)
-        print(password)
+        # print(username)
+        # print(password)
         ret = user.check_password(true_password)
         if not password == re_password:
             raise ValidationError('两次密码不一致')
@@ -154,3 +155,87 @@ class PassWord(APIView):
 
         # 返回数据
         return APIResponse(code=1, msg="成功")
+
+
+# 点赞接口
+class PraiseView(GenericViewSet, APIView):
+    queryset = models.Praise.objects.all()
+    serializer_class = serializer.UserPraiseSerilaizer
+
+    def update(self, request):
+        re_data = request.data
+        user = re_data['user']
+        course = re_data['course']
+        praise = models.Praise.objects.filter(user=user, course=course).first()
+        if not praise:
+            return APIResponse(code=0, msg='获取失败')
+        else:
+            praise_ser = serializer.UserPraiseSerilaizer(instance=praise, data=request.data, partial=True)
+            praise_ser.is_valid(raise_exception=True)
+            praise_ser.save()
+            result = praise_ser.data
+            praise = str(re_data['praise'])
+            print(praise)
+            if praise == "True":
+                p_course = models.Course.objects.filter(id=course).first()
+                popular = p_course.popular + 10
+                models.Course.objects.filter(id=course).update(popular=popular)
+                print("true",popular)
+            else:
+                p_course = models.Course.objects.filter(id=course).first()
+                popular = p_course.popular - 10
+                models.Course.objects.filter(id=course).update(popular=popular)
+                print("false",popular)
+            return APIResponse(code=1, msg='获取成功', data=result)
+
+
+
+    def get(self, request):
+        re_data = request.data
+        user = re_data['user']
+        course = re_data['course']
+        praise = models.Praise.objects.filter(user=user, course=course).first()
+        if not praise:
+            return APIResponse(code=0, msg='获取失败')
+        else:
+            praise_ser = serializer.UserPraiseSerilaizer(instance=praise, data=request.data, partial=True)
+            praise_ser.is_valid(raise_exception=True)
+            result = praise_ser.data
+            return APIResponse(code=1, msg='获取成功', data=result)
+
+
+
+
+
+# 评论接口
+class CommentView(GenericViewSet,  APIView):
+    queryset = models.Comment.objects.all()
+    serializer_class = serializer.CommentSerializer
+    def get(self,request):
+        # print("get",request.data)
+        re_data = request.data
+        course_id = re_data['course']
+        comment_list = models.Comment.objects.filter(course=course_id).all()
+        if not comment_list:
+            return APIResponse(code=0,msg='获取失败')
+        else:
+            comment_list_ser = serializer.CommentSerializer(instance=comment_list,many=True)
+            return APIResponse(code=1,msg='获取成功',data=comment_list_ser.data)
+
+
+
+    def update(self, request):
+        # print("update",request.data)
+        re_data = request.data
+        user = re_data['user']
+        course = re_data['course']
+        comment = models.Comment.objects.filter(user=user, course=course).first()
+        if not comment:
+            return APIResponse(code=0, msg='获取失败')
+        else:
+            praise_ser = serializer.CommentSerializer(instance=comment, data=request.data, partial=True)
+            praise_ser.is_valid(raise_exception=True)
+            praise_ser.save()
+            result = praise_ser.data
+            return APIResponse(code=1, msg='获取成功', data=result)
+
