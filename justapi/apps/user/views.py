@@ -175,17 +175,17 @@ class PraiseView(GenericViewSet, APIView):
             praise_ser.save()
             result = praise_ser.data
             praise = str(re_data['praise'])
-            print(praise)
+            # print(praise)
             if praise == "True":
                 p_course = models.Course.objects.filter(id=course).first()
                 popular = p_course.popular + 10
                 models.Course.objects.filter(id=course).update(popular=popular)
-                print("true",popular)
+                # print("true",popular)
             else:
                 p_course = models.Course.objects.filter(id=course).first()
                 popular = p_course.popular - 10
                 models.Course.objects.filter(id=course).update(popular=popular)
-                print("false",popular)
+                # print("false",popular)
             return APIResponse(code=1, msg='获取成功', data=result)
 
 
@@ -233,9 +233,9 @@ class CommentView(GenericViewSet,  APIView):
         if not comment:
             return APIResponse(code=0, msg='获取失败')
         else:
-            praise_ser = serializer.CommentSerializer(instance=comment, data=request.data, partial=True)
-            praise_ser.is_valid(raise_exception=True)
-            praise_ser.save()
-            result = praise_ser.data
+            comment_ser = serializer.CommentSerializer(instance=comment, data=request.data, partial=True)
+            comment_ser.is_valid(raise_exception=True)
+            comment_ser.save()
+            result = comment_ser.data
             return APIResponse(code=1, msg='获取成功', data=result)
 

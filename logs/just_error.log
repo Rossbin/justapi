@@ -13511,3 +13511,17 @@ INFO 2021-04-01 19:48:10,984 basehttp 154 "PATCH /user/praise/ HTTP/1.1" 200 82
 INFO 2021-04-01 19:48:18,632 basehttp 154 "POST /user/comment/ HTTP/1.1" 200 251
 INFO 2021-04-01 19:49:59,942 autoreload 211 D:\JUST\justapi\justapi\apps\course\models.py changed, reloading.
 INFO 2021-04-01 19:50:03,106 autoreload 584 Watching for file changes with StatReloader
+INFO 2021-04-02 20:52:20,727 autoreload 584 Watching for file changes with StatReloader
+INFO 2021-04-02 20:52:36,836 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 4151
+INFO 2021-04-02 20:52:36,873 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 4151
+INFO 2021-04-02 20:52:36,982 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 4158
+INFO 2021-04-02 20:52:37,022 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 4158
+WARNING 2021-04-02 20:52:37,252 log 228 Not Found: /favicon.ico
+WARNING 2021-04-02 20:52:37,255 basehttp 154 "GET /favicon.ico HTTP/1.1" 404 2521
+INFO 2021-04-02 20:52:58,812 basehttp 154 "POST /xadmin/ HTTP/1.1" 302 0
+INFO 2021-04-02 20:52:59,004 basehttp 154 "GET /xadmin/ HTTP/1.1" 200 14569
+INFO 2021-04-02 20:52:59,171 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
+INFO 2021-04-02 20:53:01,487 basehttp 154 "GET /xadmin/course/teacher/ HTTP/1.1" 200 35002
+INFO 2021-04-02 20:53:01,583 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722
+INFO 2021-04-02 20:53:02,384 basehttp 154 "GET /xadmin/course/course/ HTTP/1.1" 200 56094
+INFO 2021-04-02 20:53:02,461 basehttp 154 "GET /xadmin/jsi18n/ HTTP/1.1" 200 7722

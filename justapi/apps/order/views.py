@@ -46,23 +46,27 @@ class SuccessView(APIView):
         # print("修改的订单数据库id",pdpk)
         pd_course = models.OrderDetail.objects.filter(id=pdpk).first()
         cid = pd_course.course.id
-        uid = pd_course.user.id
+        uid = order.user.id
         course = models.Course.objects.filter(id=cid).first()
         students = course.students + 20
         # print("修改后的学生人数",students)
         models.Course.objects.filter(id=cid).update(students=students)
         # =============================================================
-        # 创建点赞表中的对应关系
-        data = {"user": uid, "course": cid}
-        praise_ser = UserPraiseSerilaizer(data=data)
-        praise_ser.is_valid(raise_exception=True)
-        praise_ser.save()
-        # =============================================================
         # 创建评论表中的对应关系
         data = {"user": uid, "course": cid}
-        praise_ser = CommentSerializer(data=data)
+        comment_ser = CommentSerializer(data=data, partial=True)
+        praise_ser = UserPraiseSerilaizer(data=data, partial=True)
+        #print("comment: ", comment_ser)
+        #print("praise: ",praise_ser)
+        comment_ser.is_valid(raise_exception=True)
+        #print("comment有效: ", comment_ser.is_valid())
         praise_ser.is_valid(raise_exception=True)
+        #print("praise有效: ", praise_ser.is_valid())
+        comment_ser.save()
+        #print("comment保存：")
         praise_ser.save()
+        #print("praise保存：")
+
 
         if order.order_status==1:
             return Response(True)
