@@ -2,16 +2,39 @@ from rest_framework import serializers
 from . import models
 
 
+# 总目录序列化
+class GeneralCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.GeneralCategory
+        fields = ['id', 'name']
+
+
 class CourseCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CourseCategory
-        fields = ['id', 'name', 'button']
+        fields = ['id', 'name']
+
+
+# 带有课程分类的总目录序列化
+class FourCourseCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CourseCategory
+        fields = ['id', 'name']
+
+
+class HomeGeneralCategorySerializer(serializers.ModelSerializer):
+    coursecategrories = FourCourseCategorySerializer(many=True)
+
+    class Meta:
+        model = models.GeneralCategory
+        fields = ['id', 'name', 'coursecategrories','show', 'fourvid_list' ]
+
 
 
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Teacher
-        fields = ('name', 'role_name', 'title', 'level','signature', 'image', 'brief','email')
+        fields = ('name', 'role_name', 'title', 'level', 'signature', 'image', 'brief', 'email')
 
 
 class CourseModelSerializer(serializers.ModelSerializer):
@@ -20,7 +43,7 @@ class CourseModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Course
-        fields=[
+        fields = [
             'id',
             'name',
             'course_img',
@@ -36,6 +59,7 @@ class CourseModelSerializer(serializers.ModelSerializer):
             'status_name',
             'teacher',
             'section_list',
+
         ]
         # fields = ['id', 'name',
         #           'course_img',
@@ -48,34 +72,33 @@ class CourseModelSerializer(serializers.ModelSerializer):
         #           ]
 
 
-
-
 class CourseSectionSerializer(serializers.ModelSerializer):
     class Meta:
-        model=models.CourseSection
-        fields=['name','orders','duration','free_trail','section_link','section_type_name']
+        model = models.CourseSection
+        fields = ['name', 'orders', 'duration', 'free_trail', 'section_link', 'section_type_name']
+
+
 class CourseChapterSerializer(serializers.ModelSerializer):
     # 子序列化的方式
-    coursesections=CourseSectionSerializer(many=True)
+    coursesections = CourseSectionSerializer(many=True)
 
     class Meta:
-        model=models.CourseChapter
-        fields=['name','summary','chapter','coursesections']
-
-
+        model = models.CourseChapter
+        fields = ['name', 'summary', 'chapter', 'coursesections']
 
 
 # 优秀课程序列化
 class CoursePopularSerializer(serializers.ModelSerializer):
-     # 子序列化的方式
+    # 子序列化的方式
     teacher = TeacherSerializer()
 
     class Meta:
         model = models.Course
-        fields = ['id','name','course_img','brief','popular','teacher','project']
+        fields = ['id', 'name', 'course_img', 'brief', 'popular', 'teacher', 'project']
+
 
 # 项目课程序列化
 class CourseProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Course
-        fields = ['id','name', 'course_img', 'brief', 'students', 'project']
+        fields = ['id', 'name', 'course_img', 'brief', 'students', 'project']

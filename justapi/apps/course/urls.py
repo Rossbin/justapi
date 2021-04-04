@@ -3,6 +3,8 @@ from . import views
 from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
+router.register('sidercategory', views.SiderGeneralCategoryView, 'sidercategory')
+router.register('generalcategor', views.GeneralCategoryView, 'generalcategor')
 router.register('categories', views.CourseCategoryView, 'categories')
 router.register('free', views.CouresView, 'free')
 router.register('chapters', views.CourseChapterView, 'coursechapter')

@@ -44,7 +44,47 @@ from django.db import models
 from justapi.utils.models import BaseModel
 
 
-# 实际路飞课程相关表，以免费课为例
+
+
+# 实际课程相关表，以免费课为例
+# 总目录
+class GeneralCategory(BaseModel):
+    """分类
+    python,linux,go, 网络安全
+    跟课程是一对多的关系
+
+    """
+    name = models.CharField(max_length=64, unique=True, verbose_name="总分类名称")
+    show = models.BooleanField(default=False, verbose_name="前端展示遍历")
+
+    class Meta:
+        db_table = "just_general_category"
+        verbose_name = "总分类"
+        verbose_name_plural = verbose_name  # xadmin中要显示的中文
+
+    def __str__(self):
+        return "%s" % self.name
+
+
+    # 首页轮播图旁的菜单栏中的四个视频
+    @property
+    def fourvid_list(self):
+        ll = []
+        # 根据课程取出所有章节（正向查询，字段名.all()）
+        general_category_list = self.coursecategrories.all()
+        for four_course in general_category_list:
+            if four_course.course_list:
+                ll.append({
+                    'fourvid_list': four_course.course_list,
+
+                })
+                # print("ll: ",ll)
+                if len(ll) >= 4:
+                    return ll
+        return ll
+
+
+
 class CourseCategory(BaseModel):
     """分类
     python,linux,go, 网络安全
@@ -52,7 +92,9 @@ class CourseCategory(BaseModel):
 
     """
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
-    button = models.BooleanField(default=False, verbose_name="前端按钮遍历")
+    general_category = models.ForeignKey("GeneralCategory", related_name='coursecategrories', on_delete=models.SET_NULL,
+                                         db_constraint=False, null=True,
+                                         blank=True, verbose_name="总目录分类")
 
     class Meta:
         db_table = "just_course_category"
@@ -61,6 +103,29 @@ class CourseCategory(BaseModel):
 
     def __str__(self):
         return "%s" % self.name
+
+    # 首页轮播图旁的菜单栏中的四个视频
+    @property
+    def course_list(self):
+        ll = []
+        # 根据课程取出所有章节（正向查询，字段名.all()）
+        course_category_list = self.fourcoursecategrories.all()
+        # print("list: ", course_category_list)
+        for four_course in course_category_list:
+            four_course_ser = CourseFourSerializer(instance=four_course)
+            # print("ser: ", four_course_ser.data)
+            ll.append({
+                'id': four_course_ser.data['id'],
+                'name': four_course_ser.data['name'],
+                'course_img': four_course_ser.data['course_img'],
+                'price': four_course_ser.data['price'],
+                'students': four_course_ser.data['students'],
+                'level': four_course_ser.data['level'],
+            })
+            # print("ll: ",ll)
+            if len(ll) >= 1:
+                return ll
+        return ll
 
 
 class Course(BaseModel):
@@ -71,8 +136,8 @@ class Course(BaseModel):
         (2, '学位课程')
     )
     level_choices = (
-        (0, '初级'),
-        (1, '中级'),
+        (0, '零基础'),
+        (1, '进阶'),
         (2, '高级'),
     )
     status_choices = (
@@ -112,7 +177,8 @@ class Course(BaseModel):
     # 关联字段
     teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师",
                                 db_constraint=False)
-    course_category = models.ForeignKey("CourseCategory", on_delete=models.SET_NULL, db_constraint=False, null=True,
+    course_category = models.ForeignKey("CourseCategory", related_name='fourcoursecategrories',
+                                        on_delete=models.SET_NULL, db_constraint=False, null=True,
                                         blank=True, verbose_name="课程分类")
 
     class Meta:
@@ -156,7 +222,13 @@ class Course(BaseModel):
 
         return ll
 
-
+# home首页要返回4个分类中的课程，但是图片地址要序列化后才能保存返回
+from rest_framework import  serializers
+class CourseFourSerializer(serializers.ModelSerializer):
+    level = serializers.CharField(source='get_level_display')
+    class Meta:
+        model = Course
+        fields = ['id','name', 'course_img', 'price', 'students', 'level']
 
 
 class Teacher(BaseModel):

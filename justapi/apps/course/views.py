@@ -12,20 +12,37 @@ from rest_framework.response import Response
 from . import models
 from . import serializer
 
-
-class CourseCategoryView(GenericViewSet,ListModelMixin):
-    queryset = models.CourseCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
-    serializer_class = serializer.CourseCategorySerializer
-
-
 from .paginations import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter,SearchFilter
 from .filters import MyFilter,CourseFilterSet
+
+
+# 总目录view
+class GeneralCategoryView(GenericViewSet,ListModelMixin):
+    queryset = models.GeneralCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
+    serializer_class = serializer.GeneralCategorySerializer
+
+
+class CourseCategoryView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
+    queryset = models.CourseCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
+    serializer_class = serializer.CourseCategorySerializer
+    filter_backends=[DjangoFilterBackend,OrderingFilter]
+    ordering_fields=['id']
+    filter_fields=['general_category']
+
+
+# home页面轮播左侧目录
+class SiderGeneralCategoryView(GenericViewSet,ListModelMixin):
+    queryset = models.GeneralCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
+    serializer_class = serializer.HomeGeneralCategorySerializer
+
+
+
 class CouresView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
     queryset = models.Course.objects.filter(is_delete=False,is_show=True).order_by('orders')
     serializer_class = serializer.CourseModelSerializer
-
+    filter_backends=[DjangoFilterBackend,OrderingFilter]
     pagination_class = PageNumberPagination
 
     # 过滤和排序
@@ -134,6 +151,7 @@ class CouresSearchView(GenericViewSet,ListModelMixin):
 
     filter_backends=[SearchFilter]
     search_fields=['name']
+
 
 
 

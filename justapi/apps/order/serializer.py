@@ -100,12 +100,9 @@ class OrderCourseserializer(serializers.ModelSerializer):
 
 
 class OrderDtailserializer(serializers.ModelSerializer):
-    # course_namme = serializers.CharField(source='course.name')
-    # course_img = serializers.CharField(source='course.course_img')
     course = OrderCourseserializer()
     class Meta:
         model = models.OrderDetail
-        # fields = ['id', 'price','real_price','order','course','course_namme','course_img']
         fields = [ 'price','real_price','course']
 
 
