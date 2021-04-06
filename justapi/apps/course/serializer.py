@@ -89,12 +89,11 @@ class CourseChapterSerializer(serializers.ModelSerializer):
 
 # 优秀课程序列化
 class CoursePopularSerializer(serializers.ModelSerializer):
-    # 子序列化的方式
-    teacher = TeacherSerializer()
-
+    level = serializers.CharField(source='get_level_display')
+    project = serializers.CharField(source='get_project_display')
     class Meta:
         model = models.Course
-        fields = ['id', 'name', 'course_img', 'brief', 'popular', 'teacher', 'project']
+        fields = ['id', 'name', 'course_img', 'level', 'popular', 'price', 'project']
 
 
 # 项目课程序列化

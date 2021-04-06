@@ -15,10 +15,10 @@ from . import serializer
 from .paginations import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter,SearchFilter
-from .filters import MyFilter,CourseFilterSet
+from .filters import MyFilter,CourseFilterSet,HomeFilter
 
 
-# 总目录view
+# 总目录view(基础课)
 class GeneralCategoryView(GenericViewSet,ListModelMixin):
     queryset = models.GeneralCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
     serializer_class = serializer.GeneralCategorySerializer
@@ -36,6 +36,7 @@ class CourseCategoryView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
 class SiderGeneralCategoryView(GenericViewSet,ListModelMixin):
     queryset = models.GeneralCategory.objects.filter(is_delete=False,is_show=True).order_by('orders')
     serializer_class = serializer.HomeGeneralCategorySerializer
+    filter_backends=[HomeFilter]
 
 
 
@@ -48,7 +49,7 @@ class CouresView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
     # 过滤和排序
     # filter_backends=[DjangoFilterBackend,OrderingFilter,SearchFilter]
     # filter_backends=[DjangoFilterBackend,OrderingFilter,MyFilter]
-    filter_backends=[DjangoFilterBackend,OrderingFilter]
+    # filter_backends=[DjangoFilterBackend,OrderingFilter]
     # # filter_backends=OrderingFilter
     ordering_fields=['id', 'price', 'students']
     # search_fields=['name']
@@ -165,18 +166,47 @@ class CoursePopularView(GenericViewSet,ListModelMixin):
     serializer_class = serializer.CoursePopularSerializer
 
     filter_backends=[DjangoFilterBackend,OrderingFilter,MyFilter]
-    ordering_fields=['id', 'popular']
+    ordering_fields=[ 'popular']
     filter_fields=['course_category']
 
 
 
-# 实践项目课程接口
-class CourseProjectView(GenericViewSet,ListModelMixin):
-    queryset = models.Course.objects.filter(is_delete=False,is_show=True,project=True)
-    serializer_class = serializer.CourseProjectSerializer
+
+
+# 基础理论课=======================================
+class BaseCouresView(GenericViewSet,ListModelMixin):
+    queryset = models.Course.objects.filter(is_delete=False,is_show=True,project=False).order_by('orders')
+    serializer_class = serializer.CourseModelSerializer
+    filter_backends=[DjangoFilterBackend,OrderingFilter]
     pagination_class = PageNumberPagination
-    filter_backends=[DjangoFilterBackend]
-    filter_fields=['course_category']
+    ordering_fields=['id', 'price', 'students']
+    filter_class = CourseFilterSet
+
+
+
+
+# 实战课=======================================
+# 总目录view(实战课)
+class ActualGeneralCategoryView(GenericViewSet,ListModelMixin):
+    queryset = models.GeneralCategory.objects.filter(is_delete=False,is_show=True,project=True).order_by('orders')
+    serializer_class = serializer.GeneralCategorySerializer
+
+class ActualCourseCategoryView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
+    queryset = models.CourseCategory.objects.filter(is_delete=False,is_show=True,project=True).order_by('orders')
+    serializer_class = serializer.CourseCategorySerializer
+    filter_backends=[DjangoFilterBackend,OrderingFilter]
+    ordering_fields=['id']
+    filter_fields=['general_category']
+
+class ActualCouresView(GenericViewSet,ListModelMixin):
+    queryset = models.Course.objects.filter(is_delete=False,is_show=True,project=True).order_by('orders')
+    serializer_class = serializer.CourseModelSerializer
+    filter_backends=[DjangoFilterBackend,OrderingFilter]
+    pagination_class = PageNumberPagination
+    ordering_fields=['id', 'price', 'students']
+    filter_class = CourseFilterSet
+
+
 
 
 

@@ -8,8 +8,15 @@ class MyFilter(BaseFilterBackend):
         # 真正的过滤规则
         # params=request.GET.get('teacher')
         # queryset.filter('''''')
-        return queryset[:10]
+        return queryset[:8]
 
+# 首页推荐目录过滤7个总目录
+class HomeFilter(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        # 真正的过滤规则
+        # params=request.GET.get('teacher')
+        # queryset.filter('''''')
+        return queryset[:7]
 
 
 from django_filters.filterset import FilterSet

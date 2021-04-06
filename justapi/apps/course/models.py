@@ -54,8 +54,13 @@ class GeneralCategory(BaseModel):
     跟课程是一对多的关系
 
     """
+    project_choices = (
+        (0,'仅理论'),
+        (1,'理论实践')
+    )
     name = models.CharField(max_length=64, unique=True, verbose_name="总分类名称")
     show = models.BooleanField(default=False, verbose_name="前端展示遍历")
+    project = models.SmallIntegerField(choices=project_choices, default=1, verbose_name="是否有项目实战总类")
 
     class Meta:
         db_table = "just_general_category"
@@ -91,10 +96,16 @@ class CourseCategory(BaseModel):
     跟课程是一对多的关系
 
     """
+    project_choices = (
+        (0,'仅理论'),
+        (1,'理论实践')
+    )
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
     general_category = models.ForeignKey("GeneralCategory", related_name='coursecategrories', on_delete=models.SET_NULL,
                                          db_constraint=False, null=True,
                                          blank=True, verbose_name="总目录分类")
+    project = models.SmallIntegerField(choices=project_choices, default=1, verbose_name="是否有项目实战课程分类")
+
 
     class Meta:
         db_table = "just_course_category"
@@ -138,7 +149,7 @@ class Course(BaseModel):
     level_choices = (
         (0, '零基础'),
         (1, '进阶'),
-        (2, '高级'),
+        (2, '高阶'),
     )
     status_choices = (
         (0, '上线'),
@@ -147,7 +158,7 @@ class Course(BaseModel):
     )
 
     project_choices = (
-        (0, '理论课程'),
+        (0, '理论'),
         (1, '项目实战'),
     )
     # 原始字段
@@ -200,6 +211,10 @@ class Course(BaseModel):
     @property
     def status_name(self):
         return self.get_status_display()
+
+    @property
+    def project_name(self):
+        return self.get_project_display()
 
     @property
     def section_list(self):
