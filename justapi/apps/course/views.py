@@ -40,18 +40,18 @@ class SiderGeneralCategoryView(GenericViewSet,ListModelMixin):
 
 
 
-class CouresView(GenericViewSet,ListModelMixin,RetrieveModelMixin):
+class CouresView(GenericViewSet,RetrieveModelMixin):
     queryset = models.Course.objects.filter(is_delete=False,is_show=True).order_by('orders')
     serializer_class = serializer.CourseModelSerializer
     filter_backends=[DjangoFilterBackend,OrderingFilter]
-    pagination_class = PageNumberPagination
+    # pagination_class = PageNumberPagination
 
     # 过滤和排序
     # filter_backends=[DjangoFilterBackend,OrderingFilter,SearchFilter]
     # filter_backends=[DjangoFilterBackend,OrderingFilter,MyFilter]
     # filter_backends=[DjangoFilterBackend,OrderingFilter]
     # # filter_backends=OrderingFilter
-    ordering_fields=['id', 'price', 'students']
+    # ordering_fields=['id', 'price', 'students']
     # search_fields=['name']
 
     # filter_fields=['course_category']

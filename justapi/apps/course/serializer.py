@@ -59,6 +59,7 @@ class CourseModelSerializer(serializers.ModelSerializer):
             'status_name',
             'teacher',
             'section_list',
+            'project_name',
 
         ]
         # fields = ['id', 'name',
