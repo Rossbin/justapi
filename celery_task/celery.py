@@ -1,17 +1,16 @@
-
 from celery import Celery
 
 # 加载django环境
 import os
 import django
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "justapi.settings.dev")
 django.setup()
 
-broker='redis://127.0.0.1:6379/1'  #broker任务队列
-backend='redis://127.0.0.1:6379/2'   # 结构存储，执行完的结果存在这
+broker = 'redis://127.0.0.1:6379/1'  # broker任务队列
+backend = 'redis://127.0.0.1:6379/2'  # 结构存储，执行完的结果存在这
 
-app=Celery(__name__,broker=broker,backend=backend,include=['celery_task.home_task',])
-
+app = Celery(__name__, broker=broker, backend=backend, include=['celery_task.home_task', ])
 
 # 执行定时任务
 # 时区
@@ -22,6 +21,7 @@ app.conf.enable_utc = False
 # 任务的定时配置
 from datetime import timedelta
 from celery.schedules import crontab
+
 app.conf.beat_schedule = {
     'add-task': {
         'task': 'celery_task.home_task.banner_update',
@@ -30,8 +30,6 @@ app.conf.beat_schedule = {
         # 'args': (300, 150),
     }
 }
-
-
 
 # 一定要启动beat
 # celery beat -A celery_task -l info

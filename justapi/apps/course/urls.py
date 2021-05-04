@@ -3,6 +3,7 @@ from . import views
 from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
+router.register('androidcourse', views.AndroidGeneralCategoryView, 'androidcourse')
 router.register('actualgeneralcategor', views.ActualGeneralCategoryView, 'actualgeneralcategor')
 router.register('actualcategories', views.ActualCourseCategoryView, 'actualcategories')
 router.register('actualcourse', views.ActualCouresView, 'actualcourse')

@@ -29,6 +29,9 @@ class Order(models.Model):
     pay_time = models.DateTimeField(null=True,  verbose_name="支付时间")
     # 一个用户可以下多个订单，一个订单只属于一个用户，一对多的关系，关联字段写在多个一方，写在order方
     user = models.ForeignKey(User, related_name='order_user', on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="下单用户")
+    # user = models.ForeignKey(User, related_name='order_user', on_delete=models.DO_NOTHING, verbose_name="下单用户")
+
+
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     updated_time = models.DateTimeField(auto_now=True, verbose_name='最后更新时间')
     class Meta:
@@ -57,6 +60,10 @@ class OrderDetail(models.Model):
     """订单详情"""
     order = models.ForeignKey(Order, related_name='order_courses', on_delete=models.CASCADE, db_constraint=False, verbose_name="订单")
     course = models.ForeignKey(Course, related_name='course_orders', on_delete=models.SET_NULL, db_constraint=False, verbose_name="课程",null=True)
+    # order = models.ForeignKey(Order, related_name='order_courses', on_delete=models.CASCADE,  verbose_name="订单")
+    # course = models.ForeignKey(Course, related_name='course_orders', on_delete=models.SET_NULL,  verbose_name="课程",null=True)
+
+
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价")
     real_price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程实价")
 

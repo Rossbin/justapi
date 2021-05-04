@@ -23,6 +23,8 @@ class Praise(models.Model):
     praise = models.BooleanField(default=False, verbose_name="用户点赞字段")
     user = models.ForeignKey(User, related_name='praise_user', on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="点赞用户")
     course = models.ForeignKey(Course,  related_name='praise_course',on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="点赞的课程")
+    # user = models.ForeignKey(User, related_name='praise_user', on_delete=models.DO_NOTHING, verbose_name="点赞用户")
+    # course = models.ForeignKey(Course,  related_name='praise_course',on_delete=models.DO_NOTHING,  verbose_name="点赞的课程")
 
 
 # 用户评论表
@@ -35,4 +37,6 @@ class Comment(models.Model):
     comment = models.TextField(max_length=2048, verbose_name="用户评论", null=True, blank=True)
     user = models.ForeignKey(User, related_name='comment_user', on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="评论的用户")
     course = models.ForeignKey(Course, related_name='comment_course', on_delete=models.DO_NOTHING, db_constraint=False, verbose_name="评论的课程")
+    # user = models.ForeignKey(User, related_name='comment_user', on_delete=models.DO_NOTHING, verbose_name="评论的用户")
+    # course = models.ForeignKey(Course, related_name='comment_course', on_delete=models.DO_NOTHING, verbose_name="评论的课程")
 

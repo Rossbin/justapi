@@ -102,3 +102,22 @@ class CourseProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Course
         fields = ['id', 'name', 'course_img', 'brief', 'students', 'project']
+
+
+
+
+
+# 手机端
+class AndriodCourseCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CourseCategory
+        fields = ['androidcourse_base_list','androidcourse_actual_list']
+
+class AndriodGeneralCategorySerializer(serializers.ModelSerializer):
+    coursecategrories = AndriodCourseCategorySerializer(many=True)
+    project = serializers.CharField(source='get_project_display')
+    class Meta:
+        model = models.GeneralCategory
+        fields = ['id', 'name', 'project','coursecategrories']
+
+

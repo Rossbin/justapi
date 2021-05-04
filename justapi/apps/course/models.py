@@ -42,9 +42,7 @@ from django.db import models
 #     period = models.IntegerField(verbose_name='学习建议周期(month)', default=0)
 
 from justapi.utils.models import BaseModel
-
-
-
+from justapi.settings.dev import BASE_URL
 
 # 实际课程相关表，以免费课为例
 # 总目录
@@ -55,8 +53,8 @@ class GeneralCategory(BaseModel):
 
     """
     project_choices = (
-        (0,'仅理论'),
-        (1,'理论实践')
+        (0, '仅理论'),
+        (1, '理论实践')
     )
     name = models.CharField(max_length=64, unique=True, verbose_name="总分类名称")
     show = models.BooleanField(default=False, verbose_name="前端展示遍历")
@@ -69,7 +67,6 @@ class GeneralCategory(BaseModel):
 
     def __str__(self):
         return "%s" % self.name
-
 
     # 首页轮播图旁的菜单栏中的四个视频
     @property
@@ -89,7 +86,6 @@ class GeneralCategory(BaseModel):
         return ll
 
 
-
 class CourseCategory(BaseModel):
     """分类
     python,linux,go, 网络安全
@@ -97,15 +93,19 @@ class CourseCategory(BaseModel):
 
     """
     project_choices = (
-        (0,'仅理论'),
-        (1,'理论实践')
+        (0, '仅理论'),
+        (1, '理论实践')
     )
     name = models.CharField(max_length=64, unique=True, verbose_name="分类名称")
     general_category = models.ForeignKey("GeneralCategory", related_name='coursecategrories', on_delete=models.SET_NULL,
                                          db_constraint=False, null=True,
                                          blank=True, verbose_name="总目录分类")
-    project = models.SmallIntegerField(choices=project_choices, default=1, verbose_name="是否有项目实战课程分类")
+    # general_category = models.ForeignKey("GeneralCategory", related_name='coursecategrories', on_delete=models.SET_NULL,
+    #                                  null=True,
+    #                                  blank=True, verbose_name="总目录分类")
 
+
+    project = models.SmallIntegerField(choices=project_choices, default=1, verbose_name="是否有项目实战课程分类")
 
     class Meta:
         db_table = "just_course_category"
@@ -114,6 +114,10 @@ class CourseCategory(BaseModel):
 
     def __str__(self):
         return "%s" % self.name
+
+    @property
+    def project_name(self):
+        return self.get_project_display()
 
     # 首页轮播图旁的菜单栏中的四个视频
     @property
@@ -136,6 +140,50 @@ class CourseCategory(BaseModel):
             # print("ll: ",ll)
             if len(ll) >= 1:
                 return ll
+        return ll
+
+
+
+    # 手机端的全部视频
+    @property
+    def androidcourse_base_list(self):
+        ll = []
+        # 根据课程取出所有章节（正向查询，字段名.all()）
+        course_category_list = self.fourcoursecategrories.filter(is_delete=False,is_show=True,project=False)
+        # print("list: ", course_category_list)
+        for four_course in course_category_list:
+            four_course_ser = CourseFourSerializer(instance=four_course)
+            # print("ser: ", four_course_ser.data)
+            ll.append({
+                'id': four_course_ser.data['id'],
+                'name': four_course_ser.data['name'],
+                'course_img': BASE_URL + four_course_ser.data['course_img'],
+                'price': four_course_ser.data['price'],
+                'students': four_course_ser.data['students'],
+                'level': four_course_ser.data['level'],
+                'project_name': four_course_ser.data['project_name'],
+            })
+        return ll
+
+    # 手机端的实战全部视频
+    @property
+    def androidcourse_actual_list(self):
+        ll = []
+        # 根据课程取出所有章节（正向查询，字段名.all()）
+        course_category_list = self.fourcoursecategrories.filter(is_delete=False,is_show=True,project=True)
+        # print("list: ", course_category_list)
+        for four_course in course_category_list:
+            four_course_ser = CourseFourSerializer(instance=four_course)
+            # print("ser: ", four_course_ser.data)
+            ll.append({
+                'id': four_course_ser.data['id'],
+                'name': four_course_ser.data['name'],
+                'course_img': BASE_URL + four_course_ser.data['course_img'],
+                'price': four_course_ser.data['price'],
+                'students': four_course_ser.data['students'],
+                'level': four_course_ser.data['level'],
+                'project_name': four_course_ser.data['project_name'],
+            })
         return ll
 
 
@@ -179,7 +227,7 @@ class Course(BaseModel):
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价", default=0)
     popular = models.IntegerField(default=0, verbose_name="课程受欢迎程度")
     project = models.SmallIntegerField(choices=project_choices, default=0, verbose_name="是否为项目实战课程")
-    brief_text = models.TextField(max_length=2048, verbose_name="章节介绍", null=True, blank=True)
+
     # 优化字段
     students = models.IntegerField(verbose_name="学习人数", default=0)
     sections = models.IntegerField(verbose_name="总课时数量", default=0)
@@ -191,6 +239,11 @@ class Course(BaseModel):
     course_category = models.ForeignKey("CourseCategory", related_name='fourcoursecategrories',
                                         on_delete=models.SET_NULL, db_constraint=False, null=True,
                                         blank=True, verbose_name="课程分类")
+    # teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师")
+    # course_category = models.ForeignKey("CourseCategory", related_name='fourcoursecategrories',
+    #                                     on_delete=models.SET_NULL,null=True,
+    #                                     blank=True, verbose_name="课程分类")
+
 
     class Meta:
         db_table = "just_course"
@@ -237,13 +290,17 @@ class Course(BaseModel):
 
         return ll
 
+
 # home首页要返回4个分类中的课程，但是图片地址要序列化后才能保存返回
-from rest_framework import  serializers
+from rest_framework import serializers
+
+
 class CourseFourSerializer(serializers.ModelSerializer):
     level = serializers.CharField(source='get_level_display')
+
     class Meta:
         model = Course
-        fields = ['id','name', 'course_img', 'price', 'students', 'level']
+        fields = ['id', 'name', 'course_img', 'price', 'students', 'level','project_name']
 
 
 class Teacher(BaseModel):
@@ -288,6 +345,8 @@ class CourseChapter(BaseModel):
     """
     course = models.ForeignKey("Course", related_name='coursechapters', on_delete=models.CASCADE, verbose_name="课程名称",
                                db_constraint=False)
+    # course = models.ForeignKey("Course", related_name='coursechapters', on_delete=models.CASCADE, verbose_name="课程名称")
+
     chapter = models.SmallIntegerField(verbose_name="第几章", default=1)
     name = models.CharField(max_length=128, verbose_name="章节标题")
     summary = models.TextField(verbose_name="章节介绍", blank=True, null=True)
@@ -313,6 +372,9 @@ class CourseSection(BaseModel):
     )
     chapter = models.ForeignKey("CourseChapter", related_name='coursesections', on_delete=models.CASCADE,
                                 verbose_name="课程章节", db_constraint=False)
+    # chapter = models.ForeignKey("CourseChapter", related_name='coursesections', on_delete=models.CASCADE,
+    #                         verbose_name="课程章节")
+
     name = models.CharField(max_length=128, verbose_name="课时标题")
     orders = models.PositiveSmallIntegerField(verbose_name="课时排序")
     section_type = models.SmallIntegerField(default=2, choices=section_type_choices, verbose_name="课时种类")
